@@ -4,6 +4,8 @@ public class EnemyMove : MonoBehaviour
 {
     public Transform rPoint;
     public Transform lPoint;
+    public Transform player;
+    public EnemyDetect detect; 
     public float enemySpeed = 2f;
     public float jumpPower = 4f;
     public float timeJump = 3f;
@@ -15,6 +17,7 @@ public class EnemyMove : MonoBehaviour
     void Start()
     {
         enemyBody = GetComponent<Rigidbody2D>();
+        detect = GetComponentInChildren<EnemyDetect>();
     }
 
     void Update()
@@ -39,18 +42,30 @@ public class EnemyMove : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        enemyBody.linearVelocity = new Vector2(enemySpeed*moveSide, enemyBody.linearVelocity.y);
-        if (transform.position.x <= lPoint.position.x)
-        {
-            moveSide = 1;
-        }
+        enemyBody.linearVelocity = new Vector2(enemySpeed * moveSide, enemyBody.linearVelocity.y);
 
-        if (transform.position.x >= rPoint.position.x)
+        if (detect != null && detect.playerDetect && player != null)
         {
-            moveSide = -1;
+            if (player.position.x > transform.position.x)
+            {
+                moveSide = 1;
+            }else
+            {
+                moveSide = -1;
+            }
+        }else
+        {
+            if (transform.position.x <= lPoint.position.x)
+            {
+                moveSide = 1;
+            }
+            if (transform.position.x >= rPoint.position.x)
+            {
+                moveSide = -1;
+            }
         }
 //not see flip now, but later wiil be
-        if (moveSide == 1)
+    if (moveSide == 1)
         {
             transform.localScale = new Vector3(1, 1, 1);
         }
