@@ -8,6 +8,13 @@ public class EnemyAttack : MonoBehaviour
     public int attackDamage = 10;
     public float attackTime = 2f;
     private float timer = 0f;
+    private Animator animator;
+public GameObject attackEffect;
+    void Start()
+    {
+        animator = GetComponent<Animator>();
+    }
+
     void Update()
     {
         if (attackZone.playerInRange)
@@ -15,11 +22,31 @@ public class EnemyAttack : MonoBehaviour
             timer += Time.deltaTime;
             if (timer >= attackTime)
             {
-                playerHealth.TakeDamage(attackDamage);
+                animator.SetTrigger("Attack");
+             //   playerHealth.TakeDamage(attackDamage);
                 timer = 0f; }
         }
         else {
             timer = 0f;
+        }
+    }
+
+    public void DealDamage()
+    {
+        if(attackEffect != null)
+        {
+            attackEffect.SetActive(true);
+        }
+        if (attackZone.playerInRange && playerHealth.currentHealth != null)
+        {
+            playerHealth.TakeDamage(attackDamage);
+        }
+    }
+    public void HideAttackEffect()
+    {
+        if (attackEffect != null)
+        {
+            attackEffect.SetActive(false);
         }
     }
 }

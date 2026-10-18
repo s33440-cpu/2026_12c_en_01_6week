@@ -7,10 +7,12 @@ public class EnemyMove : MonoBehaviour
     public Transform player;
     public EnemyDetect detect; 
     public float enemySpeed = 2f;
+    public float stopDistance = 1.2f;
     public float jumpPower = 4f;
     public float timeJump = 3f;
     public float jumpTimer = 0f;
     private Rigidbody2D enemyBody;
+    private Animator animator;
     private int moveSide = 1; 
     private bool isGrounded = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -18,6 +20,7 @@ public class EnemyMove : MonoBehaviour
     {
         enemyBody = GetComponent<Rigidbody2D>();
         detect = GetComponentInChildren<EnemyDetect>();
+        animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -42,7 +45,18 @@ public class EnemyMove : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        enemyBody.linearVelocity = new Vector2(enemySpeed * moveSide, enemyBody.linearVelocity.y);
+        float speed = enemySpeed;
+
+        if (detect != null && detect.playerDetect && player != null)
+        {
+            float distance = Mathf.Abs(player.position.x - transform.position.x);
+
+            if (distance < stopDistance)
+            {
+                speed = 0f;
+            }
+        }
+        enemyBody.linearVelocity = new Vector2(speed * moveSide, enemyBody.linearVelocity.y);
 
         if (detect != null && detect.playerDetect && player != null)
         {
@@ -67,13 +81,15 @@ public class EnemyMove : MonoBehaviour
 //not see flip now, but later wiil be
     if (moveSide == 1)
         {
-            transform.localScale = new Vector3(1, 1, 1);
+            transform.localScale = new Vector3(-1, 1, 1);
         }
         if (moveSide == -1)
         {
-            transform.localScale = new Vector3(-1, 1, 1);
+            transform.localScale = new Vector3(1, 1, 1);
         }
-        
+        animator.SetBool("IsMoving", Mathf.Abs(enemyBody.linearVelocity.x) > 0.1f);
+        animator.SetBool("IsGrounded", isGrounded);
+        animator.SetFloat("VerticalSpeed", enemyBody.linearVelocity.y);
     }
 
     void OnCollisionStay2D(Collision2D collision)
