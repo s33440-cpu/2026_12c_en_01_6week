@@ -1,21 +1,29 @@
 using UnityEngine;
+using Player;
 
 public class PlayerHealth : MonoBehaviour
 {
-    public int maxHealth = 100;
+    [SerializeField] private PlayerConfig _config;
+
     public int currentHealth;
-    void Awake()
+
+    private void Awake()
     {
-        currentHealth = maxHealth;
+        currentHealth = _config.BaseHealth;
     }
+
     public void TakeDamage(int damage)
     {
         if (damage <= 0)
         {
             return;
         }
+
         currentHealth -= damage;
+        currentHealth = Mathf.Max(currentHealth, 0);
+
         Debug.Log("Player health: " + currentHealth);
+
         if (currentHealth <= 0)
         {
             Debug.Log("Player died");

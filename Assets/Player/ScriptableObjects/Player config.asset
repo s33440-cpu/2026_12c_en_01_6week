@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1dd0ee136e768a14a981ba3a17055ef8, type: 3}
   m_Name: Player config
   m_EditorClassIdentifier: Assembly-CSharp::Player.PlayerConfig
-  BaseHealth: 2
-  MaxHealth: 5
+  BaseHealth: 100
+  MaxHealth: 100
+  Speed: 5
+  JumpForce: 5
