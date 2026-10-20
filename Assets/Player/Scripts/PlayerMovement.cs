@@ -30,6 +30,7 @@ public class BasicPlayerMovement : MonoBehaviour
     {
         _rb.linearVelocity = new Vector2(_xInput * _speed, _rb.linearVelocityY);
 
+        Debug.Log($"Position X: {transform.position.x:F3}");
         if (_performJump)
         {
             _performJump = false;
