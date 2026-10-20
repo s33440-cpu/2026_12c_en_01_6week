@@ -2,9 +2,10 @@ using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
 
-public class BasicPlayerMovement : MonoBehaviour
+public class PlayerMovement : MonoBehaviour
 {
     private Rigidbody2D _rb;
+    private SpriteRenderer _spriteRenderer;
     private float _xInput;
     [SerializeField] private float _speed = 5;
 
@@ -15,10 +16,20 @@ public class BasicPlayerMovement : MonoBehaviour
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
+        _spriteRenderer = GetComponent<SpriteRenderer>();
     }
     private void Update()
     {
         _xInput = Input.GetAxis("Horizontal");
+
+        if (_xInput > 0)
+        {
+            _spriteRenderer.flipX = false;
+        }
+        else if (_xInput < 0)
+        {
+            _spriteRenderer.flipX = true;
+        }
 
         if (Input.GetButtonDown("Jump") && _isGrounded)
         {
