@@ -63,7 +63,7 @@ ExportedObj/
 *.pidb.meta
 *.pdb.meta
 *.mdb.meta
-
+*.meta
 # Unity3D generated file on crash reports
 sysinfo.txt
 
@@ -101,6 +101,9 @@ InitTestScene*.unity*
 
 # Auto-generated scenes by play mode tests
 /[Aa]ssets/[Ii]nit[Tt]est[Ss]cene*.unity*
+
+# UI Toolkit auto generated files
+/UIElementsSchema/
 
 # Auto-generated cache in Assets folder
 /[Aa]ssets/[Ss]ceneDependencyCache*
