@@ -9,7 +9,8 @@ public class EnemyDetect : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerDetect = true;
-            Debug.Log("Player detected");
+            Debug.Log("Player detected by " + gameObject.name + 
+                      " | Player: " + other.name);
         }
     }
 

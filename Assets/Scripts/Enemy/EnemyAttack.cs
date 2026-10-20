@@ -4,7 +4,7 @@ public class EnemyAttack : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public EnemyAttackZone attackZone;
-    public PlayerHealth playerHealth;
+   // public PlayerHealth playerHealth;
     public int attackDamage = 10;
     public float attackTime = 2f;
     private float timer = 0f;
@@ -37,9 +37,9 @@ public GameObject attackEffect;
         {
             attackEffect.SetActive(true);
         }
-        if (attackZone.playerInRange && playerHealth.currentHealth != null)
+      //  if (attackZone.playerInRange && playerHealth.currentHealth != null)
         {
-            playerHealth.TakeDamage(attackDamage);
+     //       playerHealth.TakeDamage(attackDamage);
         }
     }
     public void HideAttackEffect()
