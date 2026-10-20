@@ -4,12 +4,14 @@ using Player;
 public class PlayerHealth : MonoBehaviour
 {
     [SerializeField] private PlayerConfig _config;
+    private LevelRestart _levelRestart;
 
     public int currentHealth;
 
     private void Awake()
     {
         currentHealth = _config.BaseHealth;
+        _levelRestart = GetComponent<LevelRestart>();
     }
 
     public void TakeDamage(int damage)
@@ -27,6 +29,7 @@ public class PlayerHealth : MonoBehaviour
         if (currentHealth <= 0)
         {
             Debug.Log("Player died");
+            _levelRestart.Restart();
         }
     }
 }
