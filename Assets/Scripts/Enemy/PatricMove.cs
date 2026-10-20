@@ -16,6 +16,7 @@ public class PatricMove : MonoBehaviour
     private Rigidbody2D patrickBody;
     private Animator patrickAnimator;
     private int patrickDirection = 1;
+    private Vector3 patrickStartPosition;
     private float patrickJumpTimer = 0f;
     private bool patrickIsGrounded = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -23,6 +24,7 @@ public class PatricMove : MonoBehaviour
     {
         patrickBody = GetComponent<Rigidbody2D>();
         patrickAnimator = GetComponent<Animator>();
+        patrickStartPosition = transform.position;
         if (patrickDetect == null)
         {
             patrickDetect = GetComponentInChildren<EnemyDetect>();
@@ -48,22 +50,10 @@ if (patrickIsAttacking == false)
                         patrickIsGrounded = false;
                     }
                 }
-            }else
-            {
-                if (patrickJumpTimer >= patrickNormalJumpTime)
+            } else
                 {
-                    if (patrickIsGrounded == true)
-                    {
-                        patrickBody.AddForce(
-                            Vector2.up * patrickJumpPower,
-                            ForceMode2D.Impulse
-                        );
-
-                        patrickJumpTimer = 0f;
-                        patrickIsGrounded = false;
-                    }
+                    patrickJumpTimer = 0f;
                 }
-            }
         }
         patrickAnimator.SetBool("IsGrounded", patrickIsGrounded);
         patrickAnimator.SetFloat("VerticalSpeed", patrickBody.linearVelocity.y);
@@ -96,17 +86,21 @@ if (patrickIsAttacking == false)
                 {
                     patrickCurrentSpeed = 0f;
                 }
-            }else
+            }else {
+            float patrickDistanceHome = Mathf.Abs(
+                patrickStartPosition.x - transform.position.x);
+            if (patrickDistanceHome > 0.1f)
             {
-                if (transform.position.x <= patrickLeftPoint.position.x)
-                {
+                patrickCurrentSpeed = patrickWalkSpeed;
+                if (patrickStartPosition.x > transform.position.x) {
                     patrickDirection = 1;
-                }
-                if (transform.position.x >= patrickRightPoint.position.x)
-                {
+                }else {
                     patrickDirection = -1;
                 }
+            }else {
+                patrickCurrentSpeed = 0f;
             }
+        }
             patrickBody.linearVelocity = new Vector2(
                 patrickCurrentSpeed * patrickDirection,
                 patrickBody.linearVelocity.y);
