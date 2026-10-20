@@ -25,7 +25,7 @@ public class PlayerHealth : MonoBehaviour
         currentHealth = Mathf.Max(currentHealth, 0);
 
         Debug.Log("Player health: " + currentHealth);
-
+        Debug.Log("Damage source: " + System.Environment.StackTrace);
         if (currentHealth <= 0)
         {
             Debug.Log("Player died");
