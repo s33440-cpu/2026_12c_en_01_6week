@@ -697,7 +697,7 @@ MonoBehaviour:
   rPoint: {fileID: 0}
   lPoint: {fileID: 0}
   player: {fileID: 0}
-  detect: {fileID: 0}
+  detect: {fileID: 9078194470880690964}
   enemySpeed: 2
   stopDistance: 1.2
   jumpPower: 4
