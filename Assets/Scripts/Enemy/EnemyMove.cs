@@ -1,0 +1,110 @@
+using UnityEngine;
+
+public class EnemyMove : MonoBehaviour
+{
+    public Transform rPoint;
+    public Transform lPoint;
+    public Transform player;
+    public EnemyDetect detect; 
+    public float enemySpeed = 2f;
+    public float stopDistance = 1.2f;
+    public float jumpPower = 4f;
+    public float timeJump = 3f;
+    public float jumpTimer = 0f;
+    private Rigidbody2D enemyBody;
+    private Animator animator;
+    private int moveSide = 1; 
+    private bool isGrounded = false;
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
+        enemyBody = GetComponent<Rigidbody2D>();
+        detect = GetComponentInChildren<EnemyDetect>();
+        animator = GetComponent<Animator>();
+    }
+
+    void Update()
+    {
+        
+        jumpTimer += Time.deltaTime;
+        if (jumpTimer >= timeJump && isGrounded)
+        {
+            enemyBody.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
+            jumpTimer = 0f;
+            isGrounded = false;
+        }
+//        if (Input.GetKeyDown(KeyCode.Space))
+// {
+//            Debug.Log("SPACE PRESSED");
+//            enemyBody.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
+//        }
+
+
+    }
+
+    // Update is called once per frame
+    void FixedUpdate()
+    {
+        float speed = enemySpeed;
+
+        if (detect != null && detect.playerDetect && player != null)
+        {
+            float distance = Mathf.Abs(player.position.x - transform.position.x);
+
+            if (distance < stopDistance)
+            {
+                speed = 0f;
+            }
+        }
+        enemyBody.linearVelocity = new Vector2(speed * moveSide, enemyBody.linearVelocity.y);
+
+        if (detect != null && detect.playerDetect && player != null)
+        {
+            if (player.position.x > transform.position.x)
+            {
+                moveSide = 1;
+            }else
+            {
+                moveSide = -1;
+            }
+        }else
+        {
+            if (transform.position.x <= lPoint.position.x)
+            {
+                moveSide = 1;
+            }
+            if (transform.position.x >= rPoint.position.x)
+            {
+                moveSide = -1;
+            }
+        }
+//not see flip now, but later wiil be
+    if (moveSide == 1)
+        {
+            transform.localScale = new Vector3(-1, 1, 1);
+        }
+        if (moveSide == -1)
+        {
+            transform.localScale = new Vector3(1, 1, 1);
+        }
+        animator.SetBool("IsMoving", Mathf.Abs(enemyBody.linearVelocity.x) > 0.1f);
+        animator.SetBool("IsGrounded", isGrounded);
+        animator.SetFloat("VerticalSpeed", enemyBody.linearVelocity.y);
+    }
+
+    void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.name == "Ground")
+        {
+            isGrounded = true;
+        }
+    }
+
+    void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.name == "Ground")
+        {
+            isGrounded = false;
+        }
+    }
+}
