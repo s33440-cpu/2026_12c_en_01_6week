@@ -1111,7 +1111,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 672805562691492297, guid: 66d3a28b69465aa4dad310c182fc9bfa, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -25.9
+      value: -22.64
       objectReference: {fileID: 0}
     - target: {fileID: 672805562691492297, guid: 66d3a28b69465aa4dad310c182fc9bfa, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1196,6 +1196,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2134753804801374042, guid: 66d3a28b69465aa4dad310c182fc9bfa, type: 3}
       insertIndex: -1
       addedObject: {fileID: 807312828}
+    - targetCorrespondingSourceObject: {fileID: 2134753804801374042, guid: 66d3a28b69465aa4dad310c182fc9bfa, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 807312830}
   m_SourcePrefab: {fileID: 100100000, guid: 66d3a28b69465aa4dad310c182fc9bfa, type: 3}
 --- !u!1 &144353604
 GameObject:
@@ -1467,7 +1470,9 @@ GameObject:
   - component: {fileID: 172007092}
   - component: {fileID: 172007094}
   - component: {fileID: 172007093}
-  m_Layer: 0
+  - component: {fileID: 172007101}
+  - component: {fileID: 172007098}
+  m_Layer: 6
   m_Name: Hazards
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1512,7 +1517,7 @@ TilemapRenderer:
   m_SmallMeshCulling: 1
   m_ForceMeshLod: -1
   m_MeshLodSelectionBias: 0
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
@@ -3752,7 +3757,7 @@ Tilemap:
   - m_RefCount: 210
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
-  m_AnimationFrameRate: 1
+  m_AnimationFrameRate: 5
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Origin: {x: -29, y: -42, z: 0}
   m_Size: {x: 167, y: 42, z: 1}
@@ -3775,6 +3780,56 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &172007098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 172007091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 589145eab77664f4eb579587a6c63396, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Water
+--- !u!19719996 &172007101
+TilemapCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 172007091}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 16
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_MaximumTileChangeCount: 1000
+  m_ExtrusionFactor: 0
+  m_UseDelaunayMesh: 0
 --- !u!1 &187592646
 GameObject:
   m_ObjectHideFlags: 0
@@ -21912,6 +21967,7 @@ GameObject:
   m_Component:
   - component: {fileID: 333809231}
   - component: {fileID: 333809230}
+  - component: {fileID: 333809235}
   m_Layer: 0
   m_Name: Grid
   m_TagString: Untagged
@@ -21949,6 +22005,44 @@ Transform:
   - {fileID: 172007092}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1839735485 &333809235
+Tilemap:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 333809229}
+  m_Enabled: 1
+  m_Tiles: {}
+  m_AnimatedTiles: {}
+  m_TileAssetArray: []
+  m_TileSpriteArray: []
+  m_TileMatrixArray: []
+  m_TileColorArray: []
+  m_TileObjectToInstantiateArray: []
+  m_AnimationFrameRate: 1
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Origin: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0, y: 0, z: 1}
+  m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
+  m_TileOrientation: 0
+  m_TileOrientationMatrix:
+    e00: 1
+    e01: 0
+    e02: 0
+    e03: 0
+    e10: 0
+    e11: 1
+    e12: 0
+    e13: 0
+    e20: 0
+    e21: 0
+    e22: 1
+    e23: 0
+    e30: 0
+    e31: 0
+    e32: 0
+    e33: 1
 --- !u!1 &338464974 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6879626685955323701, guid: 9384ebf043f4eb748876d482a2a42b0d, type: 3}
@@ -24713,7 +24807,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0970bd8410b017a4e9a9ea8a2112c695, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BasicPlayerMovement
-  _config: {fileID: 11400000, guid: e2b84186611e3474ca0dc1ddeb3bc9c6, type: 2}
+  _speed: 5
+  _jumpForce: 5
   _groundCheck: {fileID: 1830358157}
   _groundCheckSize: {x: 0.6, y: 0.1}
   _groundLayer:
@@ -24763,8 +24858,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7a019567c99e6441b95ef359e5e0864, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
-  _config: {fileID: 11400000, guid: e2b84186611e3474ca0dc1ddeb3bc9c6, type: 2}
+  _baseHealth: 100
   currentHealth: 0
+--- !u!114 &807312830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 807312821}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7006e8f593d13674c939645bf1a0887b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LevelRestart
 --- !u!1 &811636945 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6879626685955323701, guid: 9384ebf043f4eb748876d482a2a42b0d, type: 3}
@@ -32421,7 +32528,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2134753804801374042, guid: 66d3a28b69465aa4dad310c182fc9bfa, type: 3}
       propertyPath: m_Name
-      value: Square
+      value: CrabNPC
       objectReference: {fileID: 0}
     - target: {fileID: 3153925398384279541, guid: 66d3a28b69465aa4dad310c182fc9bfa, type: 3}
       propertyPath: m_Sprite
