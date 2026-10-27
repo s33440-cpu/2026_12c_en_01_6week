@@ -66,6 +66,8 @@ public class PlayerMovement : MonoBehaviour
         {
             _jumpsRemaining = 2;
             _animator.SetBool("IsGrounded", true);
+            _animator.SetBool("IsFalling", false);
+            _animator.SetTrigger("Land");
         }
 
         _wasGrounded = _isGrounded;
