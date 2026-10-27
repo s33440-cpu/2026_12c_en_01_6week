@@ -9,7 +9,7 @@ public class EnemyAttack : MonoBehaviour
     public float attackTime = 2f;
     private float timer = 0f;
     private Animator animator;
-public GameObject attackEffect;
+    public GameObject attackEffect;
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -48,7 +48,7 @@ public GameObject attackEffect;
             attackEffect.SetActive(true);
         }
 
-        Debug.Log(gameObject.name + ": Dealing " + attackDamage + " damage");
+       // Debug.Log(gameObject.name + ": Dealing " + attackDamage + " damage");
         Debug.Log(gameObject.name + " attacks. Player in range: " + attackZone.playerInRange);
     }
     public void HideAttackEffect()

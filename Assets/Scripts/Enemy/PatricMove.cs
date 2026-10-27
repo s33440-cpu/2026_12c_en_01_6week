@@ -62,12 +62,10 @@ if (patrickIsAttacking == false)
     {
         if (patrickIsAttacking == true)
         {
-            patrickBody.linearVelocity = new Vector2(
-                0f,
-                patrickBody.linearVelocity.y
-            );
             patrickAnimator.SetBool("IsMoving", false);
-        }else
+            return;
+        }
+        else
         {
             float patrickCurrentSpeed = patrickWalkSpeed;
             if (patrickDetect != null && patrickDetect.playerDetect == true && patrickPlayer != null)

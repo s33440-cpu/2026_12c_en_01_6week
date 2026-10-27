@@ -8,14 +8,14 @@ public class EnemyAttackZone : MonoBehaviour
     {
         if (other.CompareTag("Player")) {
             playerInRange = true;
-            Debug.Log("Player in attack range");
+           // Debug.Log("Player in attack range");
         }
     }
     void OnTriggerExit2D(Collider2D other)
     {
         if (other.CompareTag("Player")) {
             playerInRange = false;
-            Debug.Log("Player left attack range");
+           // Debug.Log("Player left attack range");
         }
     }
 }
