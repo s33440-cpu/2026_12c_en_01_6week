@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Transform _groundCheck;
     [SerializeField] private Vector2 _groundCheckSize = new Vector2(0.6f, 0.1f);
     [SerializeField] private LayerMask _groundLayer;
+    [SerializeField] private float _coyoteTime = 0.033f;
 
     private int _jumpsRemaining = 2;
     private bool _wasGrounded;
@@ -20,6 +21,7 @@ public class PlayerMovement : MonoBehaviour
     private SpriteRenderer _spriteRenderer;
     private Animator _animator;
     private float _xInput;
+    private float _coyoteTimeCounter;
 
     private void Awake()
     {
@@ -44,10 +46,11 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        if (Input.GetButtonDown("Jump") && _jumpsRemaining > 0)
+        if (Input.GetButtonDown("Jump") && (_jumpsRemaining > 0 || _coyoteTimeCounter > 0f))
         {
             _performJump = true;
             _jumpsRemaining--;
+            _coyoteTimeCounter = 0f;
 
             _animator.SetBool("IsGrounded", false);
             _animator.SetTrigger("Jump");
@@ -59,6 +62,15 @@ public class PlayerMovement : MonoBehaviour
             0f,
             _groundLayer
         );
+
+        if (_isGrounded)
+        {
+            _coyoteTimeCounter = _coyoteTime;
+        }
+        else
+        {
+            _coyoteTimeCounter -= Time.deltaTime;
+        }
 
         _animator.SetBool("IsFalling", !_isGrounded && _rb.linearVelocityY < 0);
 
