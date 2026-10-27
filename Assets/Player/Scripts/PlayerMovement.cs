@@ -1,4 +1,5 @@
 
+using System;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
@@ -17,12 +18,14 @@ public class PlayerMovement : MonoBehaviour
 
     private Rigidbody2D _rb;
     private SpriteRenderer _spriteRenderer;
+    private Animator _animator;
     private float _xInput;
 
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
+        _animator = GetComponent<Animator>();
     }
 
     private void Update()
@@ -45,6 +48,9 @@ public class PlayerMovement : MonoBehaviour
         {
             _performJump = true;
             _jumpsRemaining--;
+
+            _animator.SetBool("IsGrounded", false);
+            _animator.SetTrigger("Jump");
         }
 
         _isGrounded = Physics2D.OverlapBox(
@@ -54,12 +60,16 @@ public class PlayerMovement : MonoBehaviour
             _groundLayer
         );
 
+        _animator.SetBool("IsFalling", !_isGrounded && _rb.linearVelocityY < 0);
+
         if (_isGrounded && !_wasGrounded)
         {
             _jumpsRemaining = 2;
+            _animator.SetBool("IsGrounded", true);
         }
 
         _wasGrounded = _isGrounded;
+        
     }
 
     private void FixedUpdate()
@@ -81,7 +91,12 @@ public class PlayerMovement : MonoBehaviour
             _rb.AddForce(
                 new Vector2(0, _jumpForce),
                 ForceMode2D.Impulse
+
             );
+
+           
         }
+
+        _animator.SetFloat("XInputAbs", Math.Abs(_xInput));
     }
 }
