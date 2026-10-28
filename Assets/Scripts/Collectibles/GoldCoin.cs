@@ -1,13 +1,14 @@
-
 using UnityEngine;
 
-public class Coin : MonoBehaviour
+public class GoldCoin : MonoBehaviour
 {
+    [SerializeField] private int value = 10;
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
-            FindFirstObjectByType<CoinManager>().AddCoin();
+            CollectableController.Instance.AddGold(value);
             Destroy(gameObject);
         }
     }
