@@ -9,7 +9,6 @@ public class Chest : MonoBehaviour
 
     private bool playerNearby;
     private bool isOpened;
-
     private void Update()
     {
         if (!playerNearby || isOpened)
@@ -20,7 +19,6 @@ public class Chest : MonoBehaviour
             OpenChest();
         }
     }
-
     private void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log(other);
@@ -29,7 +27,6 @@ public class Chest : MonoBehaviour
 
         playerNearby = true;
     }
-
     private void OnTriggerExit2D(Collider2D other)
     {
         if (!other.CompareTag("Player"))
@@ -37,26 +34,19 @@ public class Chest : MonoBehaviour
 
         playerNearby = false;
     }
-
     private void OpenChest()
     {
         if (isOpened)
             return;
 
-        // Consume one key. Do not open if there are no keys.
         if (!CollectableController.Instance.UseKey())
             return;
 
         isOpened = true;
 
-        // Spawn the potion above the chest.
         if (potionPrefab != null && potionSpawnPoint != null)
         {
-            Instantiate(
-                potionPrefab,
-                potionSpawnPoint.position,
-                potionSpawnPoint.rotation
-            );
+            Instantiate(potionPrefab,potionSpawnPoint.position,potionSpawnPoint.rotation);
         }
         Debug.Log("Chest opened!");
     }

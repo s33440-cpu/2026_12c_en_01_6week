@@ -2,15 +2,17 @@ using UnityEngine;
 
 public class CannonBall : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    [SerializeField] private int damage = 10;
+    [SerializeField] private GameObject explosionPrefab;
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        
+        if (other.CompareTag("Player"))
+        { 
+            CollectableController.Instance.TakeDmg(damage);
+            Destroy(gameObject);
+        }
+            Instantiate(explosionPrefab,GetComponent<Transform>().position, GetComponent<Transform>().rotation);
+            Destroy(gameObject);
     }
 }

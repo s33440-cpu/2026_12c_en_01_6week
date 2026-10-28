@@ -55,6 +55,11 @@ public class CollectableController : MonoBehaviour
         FindAnyObjectByType<PlayerHealth>().currentHealth += amountOfHealing;
         UpdateHPText();
     }
+    public void TakeDmg(int damage)
+    {
+        FindAnyObjectByType<PlayerHealth>().currentHealth -= damage;
+        UpdateHPText();
+    }
     public void AddSpeed(int amountOfBoost)
     {
         FindAnyObjectByType<PlayerMovement>()._speed += amountOfBoost;
