@@ -6,6 +6,8 @@ public class PlayerCombat : MonoBehaviour
     [SerializeField] private Transform _attackPoint;
     [SerializeField] private Vector2 _attackSize = new Vector2(0.5f, 0.5f);
     [SerializeField] private float _attackCooldown = 0.5f;
+    [SerializeField] private SlashVFX _slashVFX;
+    [SerializeField] private Transform _slashTransform;
 
     private float _nextAttackTime;
     private SpriteRenderer _spriteRenderer;
@@ -46,10 +48,31 @@ public class PlayerCombat : MonoBehaviour
         }
 
         _attackPoint.localPosition = localPosition;
+
+        Vector3 slashPosition = _slashTransform.localPosition;
+        slashPosition.x = Mathf.Abs(slashPosition.x);
+
+        if (_spriteRenderer.flipX)
+        {
+            slashPosition.x *= -1;
+        }
+
+        _slashTransform.localPosition = slashPosition;
+
+        Vector3 slashScale = _slashTransform.localScale;
+        slashScale.x = Mathf.Abs(slashScale.x);
+
+        if (_spriteRenderer.flipX)
+        {
+            slashScale.x *= -1;
+        }
+
+        _slashTransform.localScale = slashScale;
     }
 
     private void Attack()
     {
+        _slashVFX.Play();
         _animator.SetTrigger("Attack");
 
         Collider2D[] hitObjects = Physics2D.OverlapBoxAll(
