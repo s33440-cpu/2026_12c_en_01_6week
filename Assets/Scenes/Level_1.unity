@@ -6194,11 +6194,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 672805562691492297, guid: 66d3a28b69465aa4dad310c182fc9bfa, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -28.85
+      value: 131.4
       objectReference: {fileID: 0}
     - target: {fileID: 672805562691492297, guid: 66d3a28b69465aa4dad310c182fc9bfa, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -38.221
+      value: -7.1
       objectReference: {fileID: 0}
     - target: {fileID: 672805562691492297, guid: 66d3a28b69465aa4dad310c182fc9bfa, type: 3}
       propertyPath: m_LocalPosition.z
@@ -69592,6 +69592,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdd7248b11b0b4d4db4e94b1bb83ac3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerModeManager
+  _startWithSword: 1
 --- !u!1 &811636945 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6879626685955323701, guid: 9384ebf043f4eb748876d482a2a42b0d, type: 3}
