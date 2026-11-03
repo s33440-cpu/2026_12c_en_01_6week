@@ -6309,6 +6309,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2134753804801374042, guid: 66d3a28b69465aa4dad310c182fc9bfa, type: 3}
       insertIndex: -1
       addedObject: {fileID: 807312835}
+    - targetCorrespondingSourceObject: {fileID: 2134753804801374042, guid: 66d3a28b69465aa4dad310c182fc9bfa, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 807312836}
   m_SourcePrefab: {fileID: 100100000, guid: 66d3a28b69465aa4dad310c182fc9bfa, type: 3}
 --- !u!1 &136511197
 GameObject:
@@ -69683,7 +69686,7 @@ Animator:
   m_GameObject: {fileID: 807312821}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 369d880f5dac64c4ca86263fae8465f5, type: 2}
+  m_Controller: {fileID: 9100000, guid: dd217cac5ff5cf94f929d3af25e8b74d, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -69724,7 +69727,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdd7248b11b0b4d4db4e94b1bb83ac3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerModeManager
-  _startWithSword: 1
+  _startWithSword: 0
+--- !u!114 &807312836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 807312821}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68315d86f4e5b6b4c9730a08b4e6bf41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerAnimationController
+  _swordlessController: {fileID: 9100000, guid: dd217cac5ff5cf94f929d3af25e8b74d, type: 2}
+  _swordController: {fileID: 9100000, guid: 369d880f5dac64c4ca86263fae8465f5, type: 2}
 --- !u!1 &811636945 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6879626685955323701, guid: 9384ebf043f4eb748876d482a2a42b0d, type: 3}
