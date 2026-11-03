@@ -17,9 +17,6 @@ public class LevelRestart : MonoBehaviour
 
         _isRestarting = true;
 
-        Debug.Log("RESTARTING SCENE: " + SceneManager.GetActiveScene().name);
-        Debug.Log("SCENE INDEX: " + SceneManager.GetActiveScene().buildIndex);
-
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

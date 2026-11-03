@@ -25,8 +25,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void Awake()
     {
-        Debug.Log("AWAKE POSITION: " + transform.position);
-        Debug.Log("PLAYER CREATED: " + gameObject.GetInstanceID());
         _rb = GetComponent<Rigidbody2D>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _animator = GetComponent<Animator>();
@@ -107,24 +105,10 @@ public class PlayerMovement : MonoBehaviour
             _rb.AddForce(
                 new Vector2(0, _jumpForce),
                 ForceMode2D.Impulse
-
             );
-
-           
         }
-
-
 
         _animator.SetFloat("XInputAbs", Math.Abs(_xInput));
     }
 
-    private void OnDestroy()
-    {
-        Debug.Log("PLAYER DESTROYED: " + gameObject.GetInstanceID());
-    }
-
-    private void Start()
-    {
-        Debug.Log("PLAYER SPAWN POSITION: " + transform.position);
-    }
 }
