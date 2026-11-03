@@ -4,10 +4,14 @@ using UnityEngine;
 [RequireComponent(typeof(SpriteRenderer))]
 public class Parallax : MonoBehaviour
 {
-    [Tooltip("1 = stuck to camera (far away), 0 = moves with the world")]
-    [Range(0f, 1f)] public float factorX = 0.8f;
-    [Tooltip("1 = always vertically centered on camera (recommended for short background bands)")]
-    [Range(0f, 1f)] public float factorY = 1f;
+    [Tooltip("1 = stuck to camera (far away), 0 = moves with the world")] [Range(0f, 1f)]
+    public float factorX = 0.8f;
+
+    [Tooltip("1 = always vertically centered on camera (recommended for short background bands)")] [Range(0f, 1f)]
+    public float factorY = 1f;
+
+    public bool stopAtBoundary = false;
+    public float caveExitX = 100f;
 
     Transform cam;
     Vector3 camStart;
@@ -21,12 +25,27 @@ public class Parallax : MonoBehaviour
         layerStart = transform.position;
         tileWidth = GetComponent<SpriteRenderer>().sprite.bounds.size.x * transform.lossyScale.x;
     }
+
     void LateUpdate()
     {
         Vector3 delta = cam.position - camStart;
         float x = layerStart.x + delta.x * factorX;
         float y = layerStart.y + delta.y * factorY;
-        x += Mathf.Round((cam.position.x - x) / tileWidth) * tileWidth;
+        if (!stopAtBoundary || cam.position.x < caveExitX)
+        {
+            x += Mathf.Round((cam.position.x - x) / tileWidth) * tileWidth;
+        }
+        if (stopAtBoundary)
+        {
+            float halfWidth = GetComponent<SpriteRenderer>().bounds.extents.x;
+
+            x = Mathf.Min(x, caveExitX - halfWidth);
+
+            if (cam.position.x >= caveExitX)
+            {
+                y = layerStart.y;
+            }
+        }
         transform.position = new Vector3(x, y, layerStart.z);
     }
 }
