@@ -38,8 +38,8 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Default
-    uniqueID: 0
+  - name: Background
+    uniqueID: 1142216719
     locked: 0
   - name: Sky
     uniqueID: 2651716237
@@ -47,8 +47,11 @@ TagManager:
   - name: Ocean
     uniqueID: 2613219153
     locked: 0
-  - name: Background
-    uniqueID: 1142216719
+  - name: CaveBackground
+    uniqueID: 421585741
+    locked: 0
+  - name: Default
+    uniqueID: 0
     locked: 0
   - name: Ground
     uniqueID: 585703507

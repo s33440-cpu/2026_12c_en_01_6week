@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13b75c95f34a00d4e8c04f76b73312e6, type: 3}
+  m_Name: WaterTop_Animated
+  m_EditorClassIdentifier: Unity.2D.Tilemap.Extras::UnityEngine.Tilemaps.AnimatedTile
+  m_AnimatedSprites:
+  - {fileID: 430744993, guid: 1a8554a2a69a9904fb7f6ac6b62211fc, type: 3}
+  - {fileID: -386755260, guid: 67a1104d2f199034888e56e35e7044cd, type: 3}
+  - {fileID: -709558927, guid: 9871f1acdccdbc04495cd53ccb3a9088, type: 3}
+  - {fileID: -599078796, guid: a841a7d37d51fa4498b52fba2a8f588d, type: 3}
+  m_MinSpeed: 2
+  m_MaxSpeed: 2
+  m_AnimationStartTime: 0
+  m_AnimationStartFrame: 0
+  m_TileColliderType: 2
+  m_TileAnimationFlags: 0
