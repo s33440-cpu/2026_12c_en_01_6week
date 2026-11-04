@@ -1214,7 +1214,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 1142216719
-  m_SortingLayer: -4
+  m_SortingLayer: -5
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
@@ -72682,7 +72682,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 1142216719
-  m_SortingLayer: -4
+  m_SortingLayer: -5
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: -9190673280193267094, guid: 41529926b953cc845a35022ea016a5b9, type: 3}
@@ -89538,7 +89538,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 76.19998, y: -20}
+  m_AnchoredPosition: {x: 76.20001, y: -20}
   m_SizeDelta: {x: 304.33, y: 77.23}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1680770124
@@ -90572,7 +90572,7 @@ AudioSource:
   m_GameObject: {fileID: 1749945605}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -6982740811240008223, guid: 976db71a7558c0f41b3011ee02c45e76, type: 2}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 9128e26726f52af43afed0fc136c5ce5, type: 3}
   m_PlayOnAwake: 1
@@ -91598,10 +91598,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.CanvasScaler
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -91618,7 +91618,7 @@ Canvas:
   m_GameObject: {fileID: 1790072487}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
+  m_RenderMode: 1
   m_Camera: {fileID: 1036428051}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -92334,7 +92334,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 1142216719
-  m_SortingLayer: -4
+  m_SortingLayer: -5
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7003605037855028749, guid: 40397afd34e8bd3499f15d31162c8831, type: 3}
@@ -92498,7 +92498,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 504.32993, y: -18.999908}
+  m_AnchoredPosition: {x: 504.32993, y: -18.999756}
   m_SizeDelta: {x: 304.33, y: 77.23}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1820630556
@@ -98858,7 +98858,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 329.6999, y: -18.999908}
+  m_AnchoredPosition: {x: 329.6999, y: -18.999756}
   m_SizeDelta: {x: 304.33, y: 77.23}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &2129347479
