@@ -16,14 +16,13 @@ public class CollectableController : MonoBehaviour
 
     [SerializeField] private TMP_Text scoreText;
     [SerializeField] private TMP_Text diamondText;
-    [SerializeField] private TMP_Text goldText;
-    [SerializeField] private TMP_Text HPText;
+    [SerializeField] private Slider GoldBar;
+    [SerializeField] private Slider HpBar;
     [SerializeField] private TMP_Text KeyText;  
 
     private void Awake()
     {
         Instance = this;
-        HPText.text = "HP: " + FindAnyObjectByType<PlayerHealth>()._baseHealth;
     }
 
     public void AddSilver(int amount)
@@ -42,7 +41,7 @@ public class CollectableController : MonoBehaviour
     {
         score += amount;
         amountOfGold += 1;
-        UpdateGoldText();   
+        UpdateGoldBar();   
         UpdateScoreText();
     }
     public void AddKey()
@@ -53,12 +52,12 @@ public class CollectableController : MonoBehaviour
     public void AddHP(int amountOfHealing)
     {
         FindAnyObjectByType<PlayerHealth>().currentHealth += amountOfHealing;
-        UpdateHPText();
+        UpdateHealthBar();
     }
     public void TakeDmg(int damage)
     {
         FindAnyObjectByType<PlayerHealth>().currentHealth -= damage;
-        UpdateHPText();
+        UpdateHealthBar();
     }
     public void AddSpeed(int amountOfBoost)
     {
@@ -74,13 +73,13 @@ public class CollectableController : MonoBehaviour
     {
         diamondText.text = "Diamonds: " + amountOfDiamods;
     }
-    private void UpdateGoldText()
+    private void UpdateGoldBar()
     {
-        goldText.text = "Gold Coins: " + amountOfGold;
+        GoldBar.value = amountOfGold;
     }
-    private void UpdateHPText()
+    private void UpdateHealthBar()
     {
-        HPText.text = "HP: " + FindAnyObjectByType<PlayerHealth>().currentHealth;
+        HpBar.value = FindAnyObjectByType<PlayerHealth>().currentHealth;
     }
     private void UpdateKeyText()
     {

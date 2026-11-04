@@ -16,7 +16,7 @@ public class LevelRestart : MonoBehaviour
             return;
 
         _isRestarting = true;
-
+        Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
