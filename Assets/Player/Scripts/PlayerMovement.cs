@@ -9,7 +9,10 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Transform _groundCheck;
     [SerializeField] private Vector2 _groundCheckSize = new Vector2(0.6f, 0.1f);
     [SerializeField] private LayerMask _groundLayer;
-
+    [SerializeField] private AudioClip jumpSound;
+    [SerializeField] private AudioClip landingSound;
+    [SerializeField] private ParticleSystem landingDust;
+    private AudioSource audioSource;
     private int _jumpsRemaining = 2;
     private bool _wasGrounded;
     private bool _performJump;
@@ -23,6 +26,8 @@ public class PlayerMovement : MonoBehaviour
     {
         _rb = GetComponent<Rigidbody2D>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
+        
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -57,6 +62,14 @@ public class PlayerMovement : MonoBehaviour
         if (_isGrounded && !_wasGrounded)
         {
             _jumpsRemaining = 2;
+            if (audioSource != null && landingSound != null)
+            {
+                audioSource.PlayOneShot(landingSound);
+            }
+            if (landingDust != null)
+            {
+                landingDust.Play();
+            }
         }
 
         _wasGrounded = _isGrounded;
@@ -82,6 +95,10 @@ public class PlayerMovement : MonoBehaviour
                 new Vector2(0, _jumpForce),
                 ForceMode2D.Impulse
             );
+            if (audioSource != null && jumpSound != null)
+            {
+                audioSource.PlayOneShot(jumpSound);
+            }
         }
     }
 }

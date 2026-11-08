@@ -33,7 +33,7 @@ public class PatricMove : MonoBehaviour
 
     // Update is called once per frame
     void Update(){
-if (patrickIsAttacking == false)
+        if (patrickIsAttacking == false)
         {
             patrickJumpTimer += Time.deltaTime;
             if (patrickDetect != null && patrickDetect.playerDetect == true)
@@ -60,7 +60,7 @@ if (patrickIsAttacking == false)
     }
     void FixedUpdate()
     {
-        if (patrickIsAttacking == true)
+        if (patrickIsAttacking)
         {
             patrickAnimator.SetBool("IsMoving", false);
             return;
