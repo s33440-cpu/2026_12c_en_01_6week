@@ -1,4 +1,5 @@
 
+using System;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
@@ -9,10 +10,14 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Transform _groundCheck;
     [SerializeField] private Vector2 _groundCheckSize = new Vector2(0.6f, 0.1f);
     [SerializeField] private LayerMask _groundLayer;
+
     [SerializeField] private AudioClip jumpSound;
     [SerializeField] private AudioClip landingSound;
     [SerializeField] private ParticleSystem landingDust;
     private AudioSource audioSource;
+
+    [SerializeField] private float _coyoteTime = 0.033f;
+
     private int _jumpsRemaining = 2;
     private bool _wasGrounded;
     private bool _performJump;
@@ -20,13 +25,15 @@ public class PlayerMovement : MonoBehaviour
 
     private Rigidbody2D _rb;
     private SpriteRenderer _spriteRenderer;
+    private Animator _animator;
     private float _xInput;
+    private float _coyoteTimeCounter;
 
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
-        
+        _animator = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
     }
 
@@ -46,10 +53,14 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        if (Input.GetButtonDown("Jump") && _jumpsRemaining > 0)
+        if (Input.GetButtonDown("Jump") && (_jumpsRemaining > 0 || _coyoteTimeCounter > 0f))
         {
             _performJump = true;
             _jumpsRemaining--;
+            _coyoteTimeCounter = 0f;
+
+            _animator.SetBool("IsGrounded", false);
+            _animator.SetTrigger("Jump");
         }
 
         _isGrounded = Physics2D.OverlapBox(
@@ -59,17 +70,34 @@ public class PlayerMovement : MonoBehaviour
             _groundLayer
         );
 
+        if (_isGrounded)
+        {
+            _coyoteTimeCounter = _coyoteTime;
+        }
+        else
+        {
+            _coyoteTimeCounter -= Time.deltaTime;
+        }
+
+        _animator.SetBool("IsFalling", !_isGrounded && _rb.linearVelocityY < 0);
+
         if (_isGrounded && !_wasGrounded)
         {
             _jumpsRemaining = 2;
+
             if (audioSource != null && landingSound != null)
             {
                 audioSource.PlayOneShot(landingSound);
             }
+
             if (landingDust != null)
             {
                 landingDust.Play();
             }
+
+            _animator.SetBool("IsGrounded", true);
+            _animator.SetBool("IsFalling", false);
+            _animator.SetTrigger("Land");
         }
 
         _wasGrounded = _isGrounded;
@@ -95,10 +123,13 @@ public class PlayerMovement : MonoBehaviour
                 new Vector2(0, _jumpForce),
                 ForceMode2D.Impulse
             );
+
             if (audioSource != null && jumpSound != null)
             {
                 audioSource.PlayOneShot(jumpSound);
             }
         }
+
+        _animator.SetFloat("XInputAbs", Math.Abs(_xInput));
     }
 }
