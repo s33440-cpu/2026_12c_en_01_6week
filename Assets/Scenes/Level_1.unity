@@ -93612,8 +93612,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b9300d5078083f4e8ff43911bf1cb81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Parallax
+  targetCamera: {fileID: 0}
   factorX: 0.55
   factorY: 1
+  centerOnCamera: 1
   stopAtBoundary: 0
   caveExitX: 15
 --- !u!212 &486934474
@@ -172461,8 +172463,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b9300d5078083f4e8ff43911bf1cb81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Parallax
+  targetCamera: {fileID: 0}
   factorX: 0.85
   factorY: 1
+  centerOnCamera: 1
   stopAtBoundary: 0
   caveExitX: 15
 --- !u!212 &1434650782
@@ -190842,83 +190846,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.78125, y: 0.5625}
   m_EdgeRadius: 0
---- !u!1001 &2010110276
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 672805562691492297, guid: 66d3a28b69465aa4dad310c182fc9bfa, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.8497076
-      objectReference: {fileID: 0}
-    - target: {fileID: 672805562691492297, guid: 66d3a28b69465aa4dad310c182fc9bfa, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.86294514
-      objectReference: {fileID: 0}
-    - target: {fileID: 672805562691492297, guid: 66d3a28b69465aa4dad310c182fc9bfa, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 2.529
-      objectReference: {fileID: 0}
-    - target: {fileID: 672805562691492297, guid: 66d3a28b69465aa4dad310c182fc9bfa, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.67
-      objectReference: {fileID: 0}
-    - target: {fileID: 672805562691492297, guid: 66d3a28b69465aa4dad310c182fc9bfa, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 672805562691492297, guid: 66d3a28b69465aa4dad310c182fc9bfa, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 672805562691492297, guid: 66d3a28b69465aa4dad310c182fc9bfa, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 672805562691492297, guid: 66d3a28b69465aa4dad310c182fc9bfa, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 672805562691492297, guid: 66d3a28b69465aa4dad310c182fc9bfa, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 672805562691492297, guid: 66d3a28b69465aa4dad310c182fc9bfa, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 672805562691492297, guid: 66d3a28b69465aa4dad310c182fc9bfa, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 672805562691492297, guid: 66d3a28b69465aa4dad310c182fc9bfa, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2134753804801374042, guid: 66d3a28b69465aa4dad310c182fc9bfa, type: 3}
-      propertyPath: m_Name
-      value: CrabNPC
-      objectReference: {fileID: 0}
-    - target: {fileID: 3153925398384279541, guid: 66d3a28b69465aa4dad310c182fc9bfa, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: -427404151018760640, guid: e29dc37bd2df27f4ebe5ebd2a0cec270, type: 3}
-    - target: {fileID: 3153925398384279541, guid: 66d3a28b69465aa4dad310c182fc9bfa, type: 3}
-      propertyPath: m_SortingLayer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 3153925398384279541, guid: 66d3a28b69465aa4dad310c182fc9bfa, type: 3}
-      propertyPath: m_SortingLayerID
-      value: -1923146593
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 66d3a28b69465aa4dad310c182fc9bfa, type: 3}
 --- !u!1 &2005010939
 GameObject:
   m_ObjectHideFlags: 0
@@ -190949,7 +190876,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2112058210}
-  - {fileID: 1232342818}
   - {fileID: 486934472}
   - {fileID: 1434650780}
   - {fileID: 1595115975}
@@ -193363,8 +193289,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b9300d5078083f4e8ff43911bf1cb81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Parallax
+  targetCamera: {fileID: 0}
   factorX: 0.9
   factorY: 1
+  centerOnCamera: 1
   stopAtBoundary: 0
   caveExitX: 15
 --- !u!212 &2112058212
@@ -199779,3 +199707,5 @@ SceneRoots:
   - {fileID: 1786156570}
   - {fileID: 1059814441}
   - {fileID: 4180341283482802014}
+  - {fileID: 112852483}
+  - {fileID: 2005010940}
