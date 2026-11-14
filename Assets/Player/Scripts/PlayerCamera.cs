@@ -7,6 +7,16 @@ public class CameraFollow : MonoBehaviour
 
     private void LateUpdate()
     {
+        if (_player == null)
+        {
+            GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
+
+            if (playerObject == null)
+                return;
+
+            _player = playerObject.transform;
+        }
+
         Vector3 targetPosition = new Vector3(
             _player.position.x,
             _player.position.y,

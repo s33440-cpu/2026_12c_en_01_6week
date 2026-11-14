@@ -6,7 +6,10 @@ public class Water : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            other.GetComponent<LevelRestart>().Restart();
+            LevelRestart restart = other.GetComponent<LevelRestart>();
+
+            if (restart != null)
+                restart.Restart();
         }
     }
 }
