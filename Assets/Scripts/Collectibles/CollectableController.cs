@@ -13,7 +13,7 @@ public class CollectableController : MonoBehaviour
     private int amountOfDiamods = 0;
     private int amountOfGold = 0;
     private int amountOfKeys = 0;
-
+    private int amountOfSilver = 0;
     [SerializeField] private TMP_Text scoreText;
     [SerializeField] private TMP_Text diamondText;
     [SerializeField] private TMP_Text goldText;
@@ -28,6 +28,7 @@ public class CollectableController : MonoBehaviour
 
     public void AddSilver(int amount)
     {
+        amountOfSilver += amount;
         score += amount;
         UpdateScoreText();
     }
@@ -99,5 +100,9 @@ public class CollectableController : MonoBehaviour
         UpdateKeyText();
         Debug.Log("Key used! Keys remaining: " + amountOfKeys);
         return true;
+    }
+    public int GetSilverCount()
+    {
+        return amountOfSilver;
     }
 }
