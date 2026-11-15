@@ -20,6 +20,7 @@ public class CrabDialogue : MonoBehaviour
     public AudioSource audioSource;
     public float typingVolume = 0.25f;
     public bool isFinalCrab = false;
+    public FinalEnding finalEnding;
     public string[] missingCoinsLines = { "HEY YOU MADE IT", "BUT YOU MISSED SOME COINS", "GO BACK AND FIND THEM" };
     public string[] allCoinsLines = { "WOW YOU DID IT", "YOU COLLECTED ALL COINS", "YOU CAN GO TO LEVEL TWO" };
     private bool dialogueActive;
@@ -96,9 +97,16 @@ public class CrabDialogue : MonoBehaviour
                 dialogueFinished = true;
                 StopDialogue();
 
-                if (isFinalCrab && canEnterNextLevel && crabFinal != null)
+                if (isFinalCrab && canEnterNextLevel)
                 {
-                    crabFinal.FinishLevel();
+                    if (finalEnding != null)
+                    {
+                        finalEnding.StartEnding();
+                    }
+                    else if (crabFinal != null)
+                    {
+                        crabFinal.FinishLevel();
+                    }
                 }
 
                 return;
@@ -167,6 +175,10 @@ public class CrabDialogue : MonoBehaviour
         }
         ClearLetters();
         typingCoroutine = StartCoroutine(TypeText(activeLines[currentLine]));
+        if (finalEnding != null && isFinalCrab && canEnterNextLevel)
+        {
+            finalEnding.OnDialogueLine(currentLine);
+        }
     }
 
     private IEnumerator TypeText(string text)
