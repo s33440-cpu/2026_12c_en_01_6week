@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class EnemyAttackZone : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     public bool playerInRange = false;
     void OnTriggerEnter2D(Collider2D other)
     {
