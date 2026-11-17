@@ -536,7 +536,7 @@ PrefabInstance:
     - target: {fileID: 2091819428306739257, guid: 62ba98fa524fd52459560b43be65db5f, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1509342729}
     - target: {fileID: 2091819428306739257, guid: 62ba98fa524fd52459560b43be65db5f, type: 3}
       propertyPath: rPoint
       value: 
@@ -544,7 +544,7 @@ PrefabInstance:
     - target: {fileID: 5283711951020547901, guid: 62ba98fa524fd52459560b43be65db5f, type: 3}
       propertyPath: playerHealth
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1509342728}
     - target: {fileID: 5954550118553548788, guid: 62ba98fa524fd52459560b43be65db5f, type: 3}
       propertyPath: m_Radius
       value: 1.5
@@ -1697,7 +1697,7 @@ PrefabInstance:
     - target: {fileID: 2091819428306739257, guid: 62ba98fa524fd52459560b43be65db5f, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1509342729}
     - target: {fileID: 2091819428306739257, guid: 62ba98fa524fd52459560b43be65db5f, type: 3}
       propertyPath: rPoint
       value: 
@@ -1705,7 +1705,7 @@ PrefabInstance:
     - target: {fileID: 5283711951020547901, guid: 62ba98fa524fd52459560b43be65db5f, type: 3}
       propertyPath: playerHealth
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1509342728}
     - target: {fileID: 5954550118553548788, guid: 62ba98fa524fd52459560b43be65db5f, type: 3}
       propertyPath: m_Radius
       value: 1.5
@@ -4164,7 +4164,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PatricDash
   patricMove: {fileID: 256510203}
   patrickDetect: {fileID: 628464244}
-  player: {fileID: 0}
+  player: {fileID: 1509342729}
   dashSpeed: 6
   dashDuration: 0.2
   dashCooldown: 5
@@ -4177,23 +4177,6 @@ MonoBehaviour:
   groundCheckForward: 0.4
   dashDamage: 15
   knockbackForce: 6
---- !u!114 &256510200
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 256510198}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 715fda38cc7ecf44296a434638da0b5c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PatricAttack
-  patricMove: {fileID: 256510203}
-  enemyAttackZone: {fileID: 1207970017}
-  playerHealth: {fileID: 0}
-  biteDamage: 10
-  coolDown: 2
 --- !u!58 &256510201
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -9757,17 +9740,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 945147230756284386, guid: abb693b0b2438ce4c9584637856f4f88, type: 3}
   m_PrefabInstance: {fileID: 839594078}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &558550501 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2882318513179123739, guid: 283a54b10abe334409498e7a4dd0f021, type: 3}
-  m_PrefabInstance: {fileID: 1323452126}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dea7b29b92f4ea94fbe54d896d447ddb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyAttackZone
 --- !u!1001 &559285187
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9791,7 +9763,7 @@ PrefabInstance:
     - target: {fileID: 2091819428306739257, guid: 62ba98fa524fd52459560b43be65db5f, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1509342729}
     - target: {fileID: 2091819428306739257, guid: 62ba98fa524fd52459560b43be65db5f, type: 3}
       propertyPath: rPoint
       value: 
@@ -9799,7 +9771,7 @@ PrefabInstance:
     - target: {fileID: 5283711951020547901, guid: 62ba98fa524fd52459560b43be65db5f, type: 3}
       propertyPath: playerHealth
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1509342728}
     - target: {fileID: 5954550118553548788, guid: 62ba98fa524fd52459560b43be65db5f, type: 3}
       propertyPath: m_Radius
       value: 1.5
@@ -10101,7 +10073,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PatricDash
   patricMove: {fileID: 561422873}
   patrickDetect: {fileID: 1792652357}
-  player: {fileID: 0}
+  player: {fileID: 1509342729}
   dashSpeed: 6
   dashDuration: 0.2
   dashCooldown: 5
@@ -10128,7 +10100,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PatricAttack
   patricMove: {fileID: 561422873}
   enemyAttackZone: {fileID: 1773754678}
-  playerHealth: {fileID: 0}
+  playerHealth: {fileID: 1509342728}
   biteDamage: 10
   coolDown: 2
 --- !u!58 &561422871
@@ -12993,17 +12965,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.78125, y: 0.5625}
   m_EdgeRadius: 0
---- !u!114 &688525653 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2882318513179123739, guid: 283a54b10abe334409498e7a4dd0f021, type: 3}
-  m_PrefabInstance: {fileID: 749217283}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dea7b29b92f4ea94fbe54d896d447ddb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyAttackZone
 --- !u!1 &699564475
 GameObject:
   m_ObjectHideFlags: 0
@@ -13635,6 +13596,10 @@ PrefabInstance:
       propertyPath: patrickPlayer
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 5745933129796717270, guid: 283a54b10abe334409498e7a4dd0f021, type: 3}
+      propertyPath: playerHealth
+      value: 
+      objectReference: {fileID: 1509342728}
     - target: {fileID: 5755709679075031470, guid: 283a54b10abe334409498e7a4dd0f021, type: 3}
       propertyPath: m_Material
       value: 
@@ -13643,6 +13608,10 @@ PrefabInstance:
       propertyPath: playerHealth
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 8640814582993706253, guid: 283a54b10abe334409498e7a4dd0f021, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1509342729}
     m_RemovedComponents:
     - {fileID: 8070203193757778393, guid: 283a54b10abe334409498e7a4dd0f021, type: 3}
     - {fileID: 3685739485157931339, guid: 283a54b10abe334409498e7a4dd0f021, type: 3}
@@ -13655,9 +13624,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1397382297872036967, guid: 283a54b10abe334409498e7a4dd0f021, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1572419634}
-    - targetCorrespondingSourceObject: {fileID: 1397382297872036967, guid: 283a54b10abe334409498e7a4dd0f021, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1572419633}
     - targetCorrespondingSourceObject: {fileID: 1397382297872036967, guid: 283a54b10abe334409498e7a4dd0f021, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1572419632}
@@ -17064,6 +17030,10 @@ PrefabInstance:
       propertyPath: patrickPlayer
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 5745933129796717270, guid: 283a54b10abe334409498e7a4dd0f021, type: 3}
+      propertyPath: playerHealth
+      value: 
+      objectReference: {fileID: 1509342728}
     - target: {fileID: 5755709679075031470, guid: 283a54b10abe334409498e7a4dd0f021, type: 3}
       propertyPath: m_Material
       value: 
@@ -17072,6 +17042,10 @@ PrefabInstance:
       propertyPath: playerHealth
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 8640814582993706253, guid: 283a54b10abe334409498e7a4dd0f021, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1509342729}
     m_RemovedComponents:
     - {fileID: 8070203193757778393, guid: 283a54b10abe334409498e7a4dd0f021, type: 3}
     - {fileID: 3685739485157931339, guid: 283a54b10abe334409498e7a4dd0f021, type: 3}
@@ -17084,9 +17058,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1397382297872036967, guid: 283a54b10abe334409498e7a4dd0f021, type: 3}
       insertIndex: -1
       addedObject: {fileID: 256510201}
-    - targetCorrespondingSourceObject: {fileID: 1397382297872036967, guid: 283a54b10abe334409498e7a4dd0f021, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 256510200}
     - targetCorrespondingSourceObject: {fileID: 1397382297872036967, guid: 283a54b10abe334409498e7a4dd0f021, type: 3}
       insertIndex: -1
       addedObject: {fileID: 256510199}
@@ -44661,7 +44632,7 @@ PrefabInstance:
     - target: {fileID: 2091819428306739257, guid: 62ba98fa524fd52459560b43be65db5f, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1509342729}
     - target: {fileID: 2091819428306739257, guid: 62ba98fa524fd52459560b43be65db5f, type: 3}
       propertyPath: rPoint
       value: 
@@ -44669,7 +44640,7 @@ PrefabInstance:
     - target: {fileID: 5283711951020547901, guid: 62ba98fa524fd52459560b43be65db5f, type: 3}
       propertyPath: playerHealth
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1509342728}
     - target: {fileID: 5954550118553548788, guid: 62ba98fa524fd52459560b43be65db5f, type: 3}
       propertyPath: m_Radius
       value: 1.5
@@ -46035,17 +46006,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ac24af2e4b0bc364da09ed04a209e071, type: 3}
---- !u!114 &1207970017 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2882318513179123739, guid: 283a54b10abe334409498e7a4dd0f021, type: 3}
-  m_PrefabInstance: {fileID: 941770490}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dea7b29b92f4ea94fbe54d896d447ddb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyAttackZone
 --- !u!224 &1211298647 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2524540068663176017, guid: d4b6b7e5dcf4b1f47b971980482d2384, type: 3}
@@ -48451,7 +48411,7 @@ PrefabInstance:
     - target: {fileID: 2091819428306739257, guid: 62ba98fa524fd52459560b43be65db5f, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1509342729}
     - target: {fileID: 2091819428306739257, guid: 62ba98fa524fd52459560b43be65db5f, type: 3}
       propertyPath: rPoint
       value: 
@@ -48459,7 +48419,7 @@ PrefabInstance:
     - target: {fileID: 5283711951020547901, guid: 62ba98fa524fd52459560b43be65db5f, type: 3}
       propertyPath: playerHealth
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1509342728}
     - target: {fileID: 5954550118553548788, guid: 62ba98fa524fd52459560b43be65db5f, type: 3}
       propertyPath: m_Radius
       value: 1.5
@@ -49094,6 +49054,10 @@ PrefabInstance:
       propertyPath: patrickPlayer
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 5745933129796717270, guid: 283a54b10abe334409498e7a4dd0f021, type: 3}
+      propertyPath: playerHealth
+      value: 
+      objectReference: {fileID: 1509342728}
     - target: {fileID: 5755709679075031470, guid: 283a54b10abe334409498e7a4dd0f021, type: 3}
       propertyPath: m_Material
       value: 
@@ -49102,6 +49066,10 @@ PrefabInstance:
       propertyPath: playerHealth
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 8640814582993706253, guid: 283a54b10abe334409498e7a4dd0f021, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1509342729}
     m_RemovedComponents:
     - {fileID: 8070203193757778393, guid: 283a54b10abe334409498e7a4dd0f021, type: 3}
     - {fileID: 3685739485157931339, guid: 283a54b10abe334409498e7a4dd0f021, type: 3}
@@ -49114,9 +49082,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1397382297872036967, guid: 283a54b10abe334409498e7a4dd0f021, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1870103822}
-    - targetCorrespondingSourceObject: {fileID: 1397382297872036967, guid: 283a54b10abe334409498e7a4dd0f021, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1870103821}
     - targetCorrespondingSourceObject: {fileID: 1397382297872036967, guid: 283a54b10abe334409498e7a4dd0f021, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1870103820}
@@ -50387,6 +50352,10 @@ PrefabInstance:
       propertyPath: patrickPlayer
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 5745933129796717270, guid: 283a54b10abe334409498e7a4dd0f021, type: 3}
+      propertyPath: playerHealth
+      value: 
+      objectReference: {fileID: 1509342728}
     - target: {fileID: 5755709679075031470, guid: 283a54b10abe334409498e7a4dd0f021, type: 3}
       propertyPath: m_Material
       value: 
@@ -50395,6 +50364,10 @@ PrefabInstance:
       propertyPath: playerHealth
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 8640814582993706253, guid: 283a54b10abe334409498e7a4dd0f021, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1509342729}
     m_RemovedComponents:
     - {fileID: 8070203193757778393, guid: 283a54b10abe334409498e7a4dd0f021, type: 3}
     - {fileID: 3685739485157931339, guid: 283a54b10abe334409498e7a4dd0f021, type: 3}
@@ -53323,6 +53296,22 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 489a604b823b8e249bfb3c1697a4d818, type: 3}
+--- !u!114 &1509342728 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9075514405697819677, guid: 489a604b823b8e249bfb3c1697a4d818, type: 3}
+  m_PrefabInstance: {fileID: 1509342727}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7a019567c99e6441b95ef359e5e0864, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
+--- !u!4 &1509342729 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 9189570405059430440, guid: 489a604b823b8e249bfb3c1697a4d818, type: 3}
+  m_PrefabInstance: {fileID: 1509342727}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1512606086
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -54926,7 +54915,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PatricDash
   patricMove: {fileID: 1572419636}
   patrickDetect: {fileID: 1105004292}
-  player: {fileID: 0}
+  player: {fileID: 1509342729}
   dashSpeed: 6
   dashDuration: 0.2
   dashCooldown: 5
@@ -54939,23 +54928,6 @@ MonoBehaviour:
   groundCheckForward: 0.4
   dashDamage: 15
   knockbackForce: 6
---- !u!114 &1572419633
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1572419631}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 715fda38cc7ecf44296a434638da0b5c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PatricAttack
-  patricMove: {fileID: 1572419636}
-  enemyAttackZone: {fileID: 688525653}
-  playerHealth: {fileID: 0}
-  biteDamage: 10
-  coolDown: 2
 --- !u!58 &1572419634
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -55287,7 +55259,7 @@ PrefabInstance:
     - target: {fileID: 2091819428306739257, guid: 62ba98fa524fd52459560b43be65db5f, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1509342729}
     - target: {fileID: 2091819428306739257, guid: 62ba98fa524fd52459560b43be65db5f, type: 3}
       propertyPath: rPoint
       value: 
@@ -55299,7 +55271,7 @@ PrefabInstance:
     - target: {fileID: 5283711951020547901, guid: 62ba98fa524fd52459560b43be65db5f, type: 3}
       propertyPath: playerHealth
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1509342728}
     - target: {fileID: 5954550118553548788, guid: 62ba98fa524fd52459560b43be65db5f, type: 3}
       propertyPath: m_Radius
       value: 1
@@ -57973,7 +57945,7 @@ PrefabInstance:
     - target: {fileID: 2091819428306739257, guid: 62ba98fa524fd52459560b43be65db5f, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1509342729}
     - target: {fileID: 2091819428306739257, guid: 62ba98fa524fd52459560b43be65db5f, type: 3}
       propertyPath: rPoint
       value: 
@@ -57981,7 +57953,7 @@ PrefabInstance:
     - target: {fileID: 5283711951020547901, guid: 62ba98fa524fd52459560b43be65db5f, type: 3}
       propertyPath: playerHealth
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1509342728}
     - target: {fileID: 5954550118553548788, guid: 62ba98fa524fd52459560b43be65db5f, type: 3}
       propertyPath: m_Radius
       value: 1.5
@@ -59090,7 +59062,7 @@ PrefabInstance:
     - target: {fileID: 2091819428306739257, guid: 62ba98fa524fd52459560b43be65db5f, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1509342729}
     - target: {fileID: 2091819428306739257, guid: 62ba98fa524fd52459560b43be65db5f, type: 3}
       propertyPath: rPoint
       value: 
@@ -59098,7 +59070,7 @@ PrefabInstance:
     - target: {fileID: 5283711951020547901, guid: 62ba98fa524fd52459560b43be65db5f, type: 3}
       propertyPath: playerHealth
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1509342728}
     - target: {fileID: 5954550118553548788, guid: 62ba98fa524fd52459560b43be65db5f, type: 3}
       propertyPath: m_Radius
       value: 1.5
@@ -60163,7 +60135,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PatricDash
   patricMove: {fileID: 1870103824}
   patrickDetect: {fileID: 1244514201}
-  player: {fileID: 0}
+  player: {fileID: 1509342729}
   dashSpeed: 6
   dashDuration: 0.2
   dashCooldown: 5
@@ -60176,23 +60148,6 @@ MonoBehaviour:
   groundCheckForward: 0.4
   dashDamage: 15
   knockbackForce: 6
---- !u!114 &1870103821
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1870103819}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 715fda38cc7ecf44296a434638da0b5c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PatricAttack
-  patricMove: {fileID: 1870103824}
-  enemyAttackZone: {fileID: 558550501}
-  playerHealth: {fileID: 0}
-  biteDamage: 10
-  coolDown: 2
 --- !u!58 &1870103822
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -64158,7 +64113,7 @@ PrefabInstance:
     - target: {fileID: 2091819428306739257, guid: 62ba98fa524fd52459560b43be65db5f, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1509342729}
     - target: {fileID: 2091819428306739257, guid: 62ba98fa524fd52459560b43be65db5f, type: 3}
       propertyPath: rPoint
       value: 
@@ -64166,7 +64121,7 @@ PrefabInstance:
     - target: {fileID: 5283711951020547901, guid: 62ba98fa524fd52459560b43be65db5f, type: 3}
       propertyPath: playerHealth
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1509342728}
     - target: {fileID: 5954550118553548788, guid: 62ba98fa524fd52459560b43be65db5f, type: 3}
       propertyPath: m_Radius
       value: 1
