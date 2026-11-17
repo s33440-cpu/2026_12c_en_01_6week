@@ -16475,7 +16475,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -765, y: 200}
+  m_AnchoredPosition: {x: -762, y: 365.99997}
   m_SizeDelta: {x: 160, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &136511197
@@ -16875,6 +16875,7 @@ MonoBehaviour:
   audioSource: {fileID: 0}
   typingVolume: 0.15
   isFinalCrab: 0
+  finalEnding: {fileID: 0}
   missingCoinsLines:
   - HEY YOU MADE IT
   - BUT YOU MISSED SOME COINS
@@ -94369,6 +94370,7 @@ MonoBehaviour:
   audioSource: {fileID: 0}
   typingVolume: 0.15
   isFinalCrab: 1
+  finalEnding: {fileID: 0}
   missingCoinsLines:
   - HEY YOU MADE IT
   - BUT YOU MISSED SOME COINS
@@ -139482,6 +139484,7 @@ MonoBehaviour:
   audioSource: {fileID: 0}
   typingVolume: 0.25
   isFinalCrab: 0
+  finalEnding: {fileID: 0}
   missingCoinsLines:
   - HEY YOU MADE IT
   - BUT YOU MISSED SOME COINS
@@ -153405,22 +153408,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2674498555923843164, guid: 9384ebf043f4eb748876d482a2a42b0d, type: 3}
   m_PrefabInstance: {fileID: 1246211452}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1249342892
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1255272504}
-  m_Layer: 0
-  m_Name: 
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
 --- !u!224 &1249342893
 RectTransform:
   m_ObjectHideFlags: 0
@@ -153458,25 +153445,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &1255272504
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1249342892}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2034714730}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -77.3, y: 0.71}
-  m_SizeDelta: {x: 35, y: 25}
-  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1255272505
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -169991,6 +169959,7 @@ MonoBehaviour:
   audioSource: {fileID: 0}
   typingVolume: 0.15
   isFinalCrab: 0
+  finalEnding: {fileID: 0}
   missingCoinsLines:
   - HEY YOU MADE IT
   - BUT YOU MISSED SOME COINS
@@ -172411,6 +172380,7 @@ MonoBehaviour:
   audioSource: {fileID: 0}
   typingVolume: 0.15
   isFinalCrab: 0
+  finalEnding: {fileID: 0}
   missingCoinsLines:
   - HEY YOU MADE IT
   - BUT YOU MISSED SOME COINS
@@ -177819,6 +177789,81 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.78125, y: 0.5625}
   m_EdgeRadius: 0
+--- !u!1 &1650291071
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1650291072}
+  - component: {fileID: 1650291074}
+  - component: {fileID: 1650291073}
+  m_Layer: 5
+  m_Name: HealthIcon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1650291072
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1650291071}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2034714730}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -79, y: 0}
+  m_SizeDelta: {x: 35, y: 25}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1650291073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1650291071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: -5682809686868360691, guid: 2c2bfbe2e5505414c85dad93a2aee291, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1650291074
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1650291071}
+  m_CullTransparentMesh: 1
 --- !u!1 &1659979804 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3937496879528532401, guid: f0a01e4db39c7254b8b283ce406121d1, type: 3}
@@ -191800,12 +191845,12 @@ RectTransform:
   m_Children:
   - {fileID: 1021340910}
   - {fileID: 1700080993}
-  - {fileID: 1255272504}
+  - {fileID: 1650291072}
   m_Father: {fileID: 1790072492}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -761, y: 294}
+  m_AnchoredPosition: {x: -758, y: 460}
   m_SizeDelta: {x: 160, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2035279591
@@ -199568,6 +199613,7 @@ MonoBehaviour:
   audioSource: {fileID: 0}
   typingVolume: 0.15
   isFinalCrab: 0
+  finalEnding: {fileID: 0}
   missingCoinsLines:
   - HEY YOU MADE IT
   - BUT YOU MISSED SOME COINS
