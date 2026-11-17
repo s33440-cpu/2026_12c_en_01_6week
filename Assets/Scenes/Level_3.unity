@@ -1669,6 +1669,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1164601859461499091, guid: 3065d530dab543c48b5c6e3290f194c6, type: 3}
   m_PrefabInstance: {fileID: 186613206}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &70052639 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2740825143986967420, guid: 489a604b823b8e249bfb3c1697a4d818, type: 3}
+  m_PrefabInstance: {fileID: 1509342727}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &71510066
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -53208,6 +53213,14 @@ PrefabInstance:
       propertyPath: _chargeTime
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4123830915728590879, guid: 489a604b823b8e249bfb3c1697a4d818, type: 3}
+      propertyPath: _projectileSpawnPoint
+      value: 
+      objectReference: {fileID: 70052639}
+    - target: {fileID: 4123830915728590879, guid: 489a604b823b8e249bfb3c1697a4d818, type: 3}
+      propertyPath: _swordProjectilePrefab
+      value: 
+      objectReference: {fileID: 5079992420381736095, guid: bc0d946c728874d43a69c7261ab0f8b9, type: 3}
     - target: {fileID: 8931028918612969819, guid: 489a604b823b8e249bfb3c1697a4d818, type: 3}
       propertyPath: m_Name
       value: Player
