@@ -1506,6 +1506,17 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &68960571 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7471644841118013791, guid: 2867a53bd3cb6d04d8cba587622b793d, type: 3}
+  m_PrefabInstance: {fileID: 849122533}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
 --- !u!1 &72498887
 GameObject:
   m_ObjectHideFlags: 0
@@ -15505,6 +15516,11 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.85, y: 0.4}
   m_EdgeRadius: 0
+--- !u!1 &365218767 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9153900553531746007, guid: 6d41953a5d6b99b44b45d4689efb0531, type: 3}
+  m_PrefabInstance: {fileID: 522022834}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &376519338
 GameObject:
   m_ObjectHideFlags: 0
@@ -17689,6 +17705,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 7820155188890738217, guid: 6d41953a5d6b99b44b45d4689efb0531, type: 3}
   m_PrefabInstance: {fileID: 522022834}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &522022836 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 44969578821604876, guid: 6d41953a5d6b99b44b45d4689efb0531, type: 3}
+  m_PrefabInstance: {fileID: 522022834}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Slider
 --- !u!1 &529122889
 GameObject:
   m_ObjectHideFlags: 0
@@ -19627,14 +19654,50 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 639456504149435977, guid: 489a604b823b8e249bfb3c1697a4d818, type: 3}
+      propertyPath: landingSound
+      value: 
+      objectReference: {fileID: 8300000, guid: e795cb22463dca24ab336b9eaa2f2359, type: 3}
+    - target: {fileID: 810152585271504893, guid: 489a604b823b8e249bfb3c1697a4d818, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: -7185563677456129915, guid: 976db71a7558c0f41b3011ee02c45e76, type: 2}
     - target: {fileID: 4123830915728590879, guid: 489a604b823b8e249bfb3c1697a4d818, type: 3}
       propertyPath: _chargeTime
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6758815705389440645, guid: 489a604b823b8e249bfb3c1697a4d818, type: 3}
+      propertyPath: Hotkey
+      value: 
+      objectReference: {fileID: 68960571}
+    - target: {fileID: 6758815705389440645, guid: 489a604b823b8e249bfb3c1697a4d818, type: 3}
+      propertyPath: potionIcon
+      value: 
+      objectReference: {fileID: 1534961176}
+    - target: {fileID: 6758815705389440645, guid: 489a604b823b8e249bfb3c1697a4d818, type: 3}
+      propertyPath: durationBar
+      value: 
+      objectReference: {fileID: 522022836}
+    - target: {fileID: 6758815705389440645, guid: 489a604b823b8e249bfb3c1697a4d818, type: 3}
+      propertyPath: durationBarObject
+      value: 
+      objectReference: {fileID: 365218767}
     - target: {fileID: 8931028918612969819, guid: 489a604b823b8e249bfb3c1697a4d818, type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 9075514405697819677, guid: 489a604b823b8e249bfb3c1697a4d818, type: 3}
+      propertyPath: BGM
+      value: 
+      objectReference: {fileID: 1749945606}
+    - target: {fileID: 9075514405697819677, guid: 489a604b823b8e249bfb3c1697a4d818, type: 3}
+      propertyPath: deathSound
+      value: 
+      objectReference: {fileID: 1846565449}
+    - target: {fileID: 9075514405697819677, guid: 489a604b823b8e249bfb3c1697a4d818, type: 3}
+      propertyPath: deathScreen
+      value: 
+      objectReference: {fileID: 1642055007}
     - target: {fileID: 9189570405059430440, guid: 489a604b823b8e249bfb3c1697a4d818, type: 3}
       propertyPath: m_LocalPosition.x
       value: -33.901096
@@ -91574,6 +91637,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1534961176 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9207319029980050708, guid: 2867a53bd3cb6d04d8cba587622b793d, type: 3}
+  m_PrefabInstance: {fileID: 849122533}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
 --- !u!1 &1553011179
 GameObject:
   m_ObjectHideFlags: 0
@@ -92799,6 +92873,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Slider
+--- !u!1 &1642055007 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 945147230756284386, guid: abb693b0b2438ce4c9584637856f4f88, type: 3}
+  m_PrefabInstance: {fileID: 91153559}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1645607765
 GameObject:
   m_ObjectHideFlags: 0
@@ -111187,6 +111266,11 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.85, y: 0.4}
   m_EdgeRadius: 0
+--- !u!82 &1846565449 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 1856183620276883000, guid: abb693b0b2438ce4c9584637856f4f88, type: 3}
+  m_PrefabInstance: {fileID: 91153559}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1852684176
 GameObject:
   m_ObjectHideFlags: 0

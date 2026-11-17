@@ -2566,6 +2566,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 58e25803faccdbe46b76d0e2ebe8bcf7, type: 3}
+--- !u!82 &146789750 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 1856183620276883000, guid: abb693b0b2438ce4c9584637856f4f88, type: 3}
+  m_PrefabInstance: {fileID: 839594078}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &153332832
 GameObject:
   m_ObjectHideFlags: 0
@@ -8313,6 +8318,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Water
   damage: 25
   damageInterval: 1
+--- !u!114 &433005000 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7471644841118013791, guid: 2867a53bd3cb6d04d8cba587622b793d, type: 3}
+  m_PrefabInstance: {fileID: 1927421446}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
 --- !u!1001 &445237575
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9160,6 +9176,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 437963178138865997, guid: 47e3a42f8202c484fbecf9cc3fffb4f9, type: 3}
   m_PrefabInstance: {fileID: 276972268}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &514683475 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9153900553531746007, guid: 6d41953a5d6b99b44b45d4689efb0531, type: 3}
+  m_PrefabInstance: {fileID: 167596342}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &517688812
 GameObject:
   m_ObjectHideFlags: 0
@@ -9731,6 +9752,11 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!1 &553219136 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 945147230756284386, guid: abb693b0b2438ce4c9584637856f4f88, type: 3}
+  m_PrefabInstance: {fileID: 839594078}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &558550501 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2882318513179123739, guid: 283a54b10abe334409498e7a4dd0f021, type: 3}
@@ -43694,37 +43720,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6eae770d3c6a7b845ba58c1bdb391c65, type: 3}
---- !u!1 &1112906459
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1112906460}
-  m_Layer: 0
-  m_Name: Totem
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1112906460
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1112906459}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 53.16, y: -97.158, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1114506294
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -49767,6 +49762,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 7820155188890738217, guid: 6d41953a5d6b99b44b45d4689efb0531, type: 3}
   m_PrefabInstance: {fileID: 167596342}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1356799657 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 44969578821604876, guid: 6d41953a5d6b99b44b45d4689efb0531, type: 3}
+  m_PrefabInstance: {fileID: 167596342}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Slider
 --- !u!1001 &1358454821
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -51038,6 +51044,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1164601859461499091, guid: 3065d530dab543c48b5c6e3290f194c6, type: 3}
   m_PrefabInstance: {fileID: 890940295}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1447960673 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9207319029980050708, guid: 2867a53bd3cb6d04d8cba587622b793d, type: 3}
+  m_PrefabInstance: {fileID: 1927421446}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
 --- !u!1001 &1447969062
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -53205,6 +53222,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 639456504149435977, guid: 489a604b823b8e249bfb3c1697a4d818, type: 3}
+      propertyPath: landingSound
+      value: 
+      objectReference: {fileID: 8300000, guid: e795cb22463dca24ab336b9eaa2f2359, type: 3}
+    - target: {fileID: 810152585271504893, guid: 489a604b823b8e249bfb3c1697a4d818, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: -7185563677456129915, guid: 976db71a7558c0f41b3011ee02c45e76, type: 2}
     - target: {fileID: 1723177960599152446, guid: 489a604b823b8e249bfb3c1697a4d818, type: 3}
       propertyPath: _startWithRangedAttack
       value: 1
@@ -53221,10 +53246,38 @@ PrefabInstance:
       propertyPath: _swordProjectilePrefab
       value: 
       objectReference: {fileID: 5079992420381736095, guid: bc0d946c728874d43a69c7261ab0f8b9, type: 3}
+    - target: {fileID: 6758815705389440645, guid: 489a604b823b8e249bfb3c1697a4d818, type: 3}
+      propertyPath: Hotkey
+      value: 
+      objectReference: {fileID: 433005000}
+    - target: {fileID: 6758815705389440645, guid: 489a604b823b8e249bfb3c1697a4d818, type: 3}
+      propertyPath: potionIcon
+      value: 
+      objectReference: {fileID: 1447960673}
+    - target: {fileID: 6758815705389440645, guid: 489a604b823b8e249bfb3c1697a4d818, type: 3}
+      propertyPath: durationBar
+      value: 
+      objectReference: {fileID: 1356799657}
+    - target: {fileID: 6758815705389440645, guid: 489a604b823b8e249bfb3c1697a4d818, type: 3}
+      propertyPath: durationBarObject
+      value: 
+      objectReference: {fileID: 514683475}
     - target: {fileID: 8931028918612969819, guid: 489a604b823b8e249bfb3c1697a4d818, type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 9075514405697819677, guid: 489a604b823b8e249bfb3c1697a4d818, type: 3}
+      propertyPath: BGM
+      value: 
+      objectReference: {fileID: 1749945606}
+    - target: {fileID: 9075514405697819677, guid: 489a604b823b8e249bfb3c1697a4d818, type: 3}
+      propertyPath: deathSound
+      value: 
+      objectReference: {fileID: 146789750}
+    - target: {fileID: 9075514405697819677, guid: 489a604b823b8e249bfb3c1697a4d818, type: 3}
+      propertyPath: deathScreen
+      value: 
+      objectReference: {fileID: 553219136}
     - target: {fileID: 9189570405059430440, guid: 489a604b823b8e249bfb3c1697a4d818, type: 3}
       propertyPath: m_LocalPosition.x
       value: 32.06114
@@ -64909,7 +64962,6 @@ SceneRoots:
   - {fileID: 811780948}
   - {fileID: 591525973}
   - {fileID: 1610555717}
-  - {fileID: 1112906460}
   - {fileID: 1368487535}
   - {fileID: 2029339551}
   - {fileID: 141852298}

@@ -151,4 +151,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e704ea8ba2c2001408cabd2f44549ca9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HealthPot
-  amountOfHealing: 3
+  amountOfHealing: 50
