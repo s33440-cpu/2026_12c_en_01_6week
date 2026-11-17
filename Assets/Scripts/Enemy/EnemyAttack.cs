@@ -5,7 +5,7 @@ public class EnemyAttack : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public EnemyAttackZone attackZone;
     public PlayerHealth playerHealth;
-    public int attackDamage = 10;
+    public int attackDamage = 30;
     public float attackTime = 2f;
     private float timer = 0f;
     private Animator animator;

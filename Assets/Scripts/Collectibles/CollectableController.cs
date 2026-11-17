@@ -63,14 +63,22 @@ public class CollectableController : MonoBehaviour
 
     public void AddHP(int amountOfHealing)
     {
-        FindAnyObjectByType<PlayerHealth>().currentHealth += amountOfHealing;
-        UpdateHealthBar();
+        PlayerHealth playerHealth = FindAnyObjectByType<PlayerHealth>();
+
+        if (playerHealth != null)
+        {
+            playerHealth.Heal(amountOfHealing);
+        }
     }
 
     public void TakeDmg(int damage)
     {
-        FindAnyObjectByType<PlayerHealth>().currentHealth -= damage;
-        UpdateHealthBar();
+        PlayerHealth playerHealth = FindAnyObjectByType<PlayerHealth>();
+
+        if (playerHealth != null)
+        {
+            playerHealth.TakeDamage(damage);
+        }
     }
 
     public void AddSpeed(int amountOfBoost)
@@ -107,11 +115,34 @@ public class CollectableController : MonoBehaviour
         SilverBar.value = amountOfSilver;
     }
 
-    private void UpdateHealthBar()
+    private PlayerHealth playerHealth;
+
+    private void OnEnable()
     {
-        HpBar.value = FindAnyObjectByType<PlayerHealth>().currentHealth;
+        playerHealth = FindAnyObjectByType<PlayerHealth>();
+
+        if (playerHealth != null)
+        {
+            playerHealth.HealthChanged += UpdateHealthBar;
+        }
     }
 
+    private void OnDisable()
+    {
+        if (playerHealth != null)
+        {
+            playerHealth.HealthChanged -= UpdateHealthBar;
+        }
+    }
+
+    private void UpdateHealthBar(int current, int maximum)
+    {
+        if (HpBar != null)
+        {
+            HpBar.maxValue = maximum;
+            HpBar.value = current;
+        }
+    }
     public bool UseKey()
     {
         if (amountOfKeys <= 0)
