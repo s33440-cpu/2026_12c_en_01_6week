@@ -11,7 +11,18 @@ public class PlayerCombat : MonoBehaviour
     [SerializeField] private SlashVFX _slashVFX;
     [SerializeField] private Transform _slashTransform;
 
+    [Header("Ranged Attack")]
+    [SerializeField] private SwordProjectile _swordProjectilePrefab;
+    [SerializeField] private Transform _projectileSpawnPoint;
+    [SerializeField] private float _chargeTime = 2f;
+    [SerializeField] private float _rangedAttackCooldown = 1f;
+
     private float _nextAttackTime;
+    private float _nextRangedAttackTime;
+    private float _holdStartTime;
+    private bool _holdingAttack;
+    private bool _projectileThrown;
+
     private SpriteRenderer _spriteRenderer;
     private Animator _animator;
 
@@ -31,10 +42,43 @@ public class PlayerCombat : MonoBehaviour
         if (PlayerModeManager.Instance.CurrentMode != PlayerMode.Sword)
             return;
 
-        if (Input.GetButtonDown("Fire1") && Time.time >= _nextAttackTime)
+        HandleAttackInput();
+    }
+
+    private void HandleAttackInput()
+    {
+        if (Input.GetButtonDown("Fire1") && !_holdingAttack)
         {
-            Attack();
-            _nextAttackTime = Time.time + _attackCooldown;
+            _holdingAttack = true;
+            _projectileThrown = false;
+            _holdStartTime = Time.time;
+        }
+
+        if (!_holdingAttack)
+            return;
+
+        bool rangedUnlocked = PlayerModeManager.Instance.RangedAttackUnlocked;
+
+        if (Input.GetButton("Fire1") &&
+            rangedUnlocked &&
+            !_projectileThrown &&
+            Time.time - _holdStartTime >= _chargeTime &&
+            Time.time >= _nextRangedAttackTime)
+        {
+            ThrowSword();
+            _projectileThrown = true;
+            _nextRangedAttackTime = Time.time + _rangedAttackCooldown;
+        }
+
+        if (Input.GetButtonUp("Fire1"))
+        {
+            if (!_projectileThrown && Time.time >= _nextAttackTime)
+            {
+                Attack();
+                _nextAttackTime = Time.time + _attackCooldown;
+            }
+
+            _holdingAttack = false;
         }
     }
 
@@ -106,25 +150,45 @@ public class PlayerCombat : MonoBehaviour
                 hitObject.GetComponentInParent<EnemyHealth>();
 
             if (enemy != null && damagedEnemies.Add(enemy))
-            {
                 enemy.TakeDamage(_attackDamage);
-            }
+
             RangedEnemy rangedEnemy =
                 hitObject.GetComponentInParent<RangedEnemy>();
 
             if (rangedEnemy != null && damagedRangedEnemies.Add(rangedEnemy))
-            {
                 rangedEnemy.TakeDamage(_attackDamage);
-            }
         }
+    }
+
+    private void ThrowSword()
+    {
+        if (_swordProjectilePrefab == null || _projectileSpawnPoint == null)
+            return;
+
+        bool facingRight = !_spriteRenderer.flipX;
+
+
+        SwordProjectile projectile = Instantiate(
+            _swordProjectilePrefab,
+            _projectileSpawnPoint.position,
+            Quaternion.identity
+        );
+
+        projectile.Initialize(facingRight);
     }
 
     private void OnDrawGizmosSelected()
     {
-        if (_attackPoint == null)
-            return;
+        if (_attackPoint != null)
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireCube(_attackPoint.position, _attackSize);
+        }
 
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireCube(_attackPoint.position, _attackSize);
+        if (_projectileSpawnPoint != null)
+        {
+            Gizmos.color = Color.cyan;
+            Gizmos.DrawWireSphere(_projectileSpawnPoint.position, 0.15f);
+        }
     }
 }
