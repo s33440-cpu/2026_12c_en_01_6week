@@ -1,11 +1,15 @@
 
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
     [SerializeField] private int _baseHealth = 100;
     [SerializeField] private float _invulnerabilityDuration = 1f;
+    [SerializeField] private GameObject deathScreen;
+    [SerializeField] private AudioSource BGM;
+    [SerializeField] private AudioSource deathSound;
 
     private LevelRestart _levelRestart;
     private float _nextDamageTime;
@@ -45,15 +49,13 @@ public class PlayerHealth : MonoBehaviour
         if (currentHealth <= 0)
         {
             Debug.Log("Player died");
-
-            if (_levelRestart != null)
-            {
-                _levelRestart.Restart();
-            }
-            else
-            {
-                Debug.LogError("LevelRestart component is missing.");
-            }
+            deathSound.Play();
+            BGM.Stop();
+            deathScreen.SetActive(true);
+            FindAnyObjectByType<PauseController>().darkOverlay.SetActive(true);
+            int levelIndex = SceneManager.GetActiveScene().buildIndex;
+            bool isNewRecord = HighScoreManager.TrySaveScore(levelIndex, FindAnyObjectByType<CollectableController>().score);
+            Time.timeScale = 0f;
         }
     }
 

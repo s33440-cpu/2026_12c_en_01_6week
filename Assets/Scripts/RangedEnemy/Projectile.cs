@@ -51,9 +51,9 @@ public class Projectile : MonoBehaviour
     {
         if (other.GetComponentInParent<PlayerHealth>() != null)
         {
-            CollectableController.Instance.TakeDmg(damage);
-        }
+            other.GetComponent<PlayerHealth>().TakeDamage(damage);
 
-        Destroy(gameObject);
+            Destroy(gameObject);
+        }
     }
 }

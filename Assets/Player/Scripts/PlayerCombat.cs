@@ -89,6 +89,7 @@ public class PlayerCombat : MonoBehaviour
         );
 
         HashSet<EnemyHealth> damagedEnemies = new HashSet<EnemyHealth>();
+        HashSet<RangedEnemy> damagedRangedEnemies = new HashSet<RangedEnemy>();
 
         foreach (Collider2D hitObject in hitObjects)
         {
@@ -107,6 +108,13 @@ public class PlayerCombat : MonoBehaviour
             if (enemy != null && damagedEnemies.Add(enemy))
             {
                 enemy.TakeDamage(_attackDamage);
+            }
+            RangedEnemy rangedEnemy =
+                hitObject.GetComponentInParent<RangedEnemy>();
+
+            if (rangedEnemy != null && damagedRangedEnemies.Add(rangedEnemy))
+            {
+                rangedEnemy.TakeDamage(_attackDamage);
             }
         }
     }
