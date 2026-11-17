@@ -1,65 +1,70 @@
+
 using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
     public int maxHealth = 100;
     public int currentHealth;
+
     private Animator animator;
     private bool isDead = false;
-    void Awake()
+
+    private void Awake()
     {
         currentHealth = maxHealth;
         animator = GetComponent<Animator>();
     }
 
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            TakeDamage(100);
-        }
-    }
     public void TakeDamage(int damage)
     {
-        if (damage <= 0 || isDead) {
+        if (damage <= 0 || isDead)
             return;
-        }
 
-        currentHealth -= damage;
-        Debug.Log("Heath" + currentHealth);
-        if (currentHealth <= 0) {
-           Die();
+        currentHealth = Mathf.Max(currentHealth - damage, 0);
+
+        Debug.Log(gameObject.name + " health: " + currentHealth);
+
+        if (currentHealth <= 0)
+        {
+            Die();
         }
-        else
+        else if (animator != null)
         {
             animator.SetTrigger("Hit");
         }
     }
 
-    void Die()
+    private void Die()
     {
         isDead = true;
-        animator.SetTrigger("Die");
-        animator.ResetTrigger("Attack");
-        animator.ResetTrigger("Hit");
-        EnemyMove movement = GetComponent<EnemyMove>();
 
-        if (movement != null)
+        if (animator != null)
         {
-            movement.enabled = false;
+            animator.SetTrigger("Die");
+            animator.ResetTrigger("Attack");
+            animator.ResetTrigger("Hit");
         }
-        EnemyAttack attack = GetComponent<EnemyAttack>();
-        if(attack != null)
-        {
-            attack.enabled = false;
-        }
+
+        EnemyMove enemyMove = GetComponent<EnemyMove>();
+        if (enemyMove != null)
+            enemyMove.enabled = false;
+
+        EnemyAttack enemyAttack = GetComponent<EnemyAttack>();
+        if (enemyAttack != null)
+            enemyAttack.enabled = false;
+
+        PatricMove patricMove = GetComponent<PatricMove>();
+        if (patricMove != null)
+            patricMove.enabled = false;
+
+        PatricAttack patricAttack = GetComponent<PatricAttack>();
+        if (patricAttack != null)
+            patricAttack.enabled = false;
+
         Rigidbody2D body = GetComponent<Rigidbody2D>();
-        if(body != null)
-        { body.linearVelocity = Vector2.zero;
-        }
+        if (body != null)
+            body.linearVelocity = Vector2.zero;
+
         Destroy(gameObject, 1.1f);
-        }
     }
-    
-
-
+}

@@ -1,4 +1,5 @@
 
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerCombat : MonoBehaviour
@@ -6,6 +7,7 @@ public class PlayerCombat : MonoBehaviour
     [SerializeField] private Transform _attackPoint;
     [SerializeField] private Vector2 _attackSize = new Vector2(0.5f, 0.5f);
     [SerializeField] private float _attackCooldown = 0.5f;
+    [SerializeField] private int _attackDamage = 25;
     [SerializeField] private SlashVFX _slashVFX;
     [SerializeField] private Transform _slashTransform;
 
@@ -38,48 +40,56 @@ public class PlayerCombat : MonoBehaviour
 
     private void UpdateAttackPoint()
     {
-        Vector3 localPosition = _attackPoint.localPosition;
-
-        localPosition.x = Mathf.Abs(localPosition.x);
-
-        if (_spriteRenderer.flipX)
+        if (_attackPoint != null && _spriteRenderer != null)
         {
-            localPosition.x *= -1;
+            Vector3 localPosition = _attackPoint.localPosition;
+            localPosition.x = Mathf.Abs(localPosition.x);
+
+            if (_spriteRenderer.flipX)
+                localPosition.x *= -1;
+
+            _attackPoint.localPosition = localPosition;
         }
 
-        _attackPoint.localPosition = localPosition;
-
-        Vector3 slashPosition = _slashTransform.localPosition;
-        slashPosition.x = Mathf.Abs(slashPosition.x);
-
-        if (_spriteRenderer.flipX)
+        if (_slashTransform != null && _spriteRenderer != null)
         {
-            slashPosition.x *= -1;
+            Vector3 slashPosition = _slashTransform.localPosition;
+            slashPosition.x = Mathf.Abs(slashPosition.x);
+
+            if (_spriteRenderer.flipX)
+                slashPosition.x *= -1;
+
+            _slashTransform.localPosition = slashPosition;
+
+            Vector3 slashScale = _slashTransform.localScale;
+            slashScale.x = Mathf.Abs(slashScale.x);
+
+            if (_spriteRenderer.flipX)
+                slashScale.x *= -1;
+
+            _slashTransform.localScale = slashScale;
         }
-
-        _slashTransform.localPosition = slashPosition;
-
-        Vector3 slashScale = _slashTransform.localScale;
-        slashScale.x = Mathf.Abs(slashScale.x);
-
-        if (_spriteRenderer.flipX)
-        {
-            slashScale.x *= -1;
-        }
-
-        _slashTransform.localScale = slashScale;
     }
 
     private void Attack()
     {
-        _slashVFX.Play();
-        _animator.SetTrigger("Attack");
+        if (_slashVFX != null)
+            _slashVFX.Play();
+
+        if (_animator != null)
+            _animator.SetTrigger("Attack");
+
+        if (_attackPoint == null)
+            return;
 
         Collider2D[] hitObjects = Physics2D.OverlapBoxAll(
             _attackPoint.position,
             _attackSize,
             0f
         );
+
+        HashSet<EnemyHealth> damagedEnemies = new HashSet<EnemyHealth>();
+        HashSet<RangedEnemy> damagedRangedEnemies = new HashSet<RangedEnemy>();
 
         foreach (Collider2D hitObject in hitObjects)
         {
@@ -89,6 +99,22 @@ public class PlayerCombat : MonoBehaviour
             if (destructible != null)
             {
                 destructible.DestroyObject();
+                continue;
+            }
+
+            EnemyHealth enemy =
+                hitObject.GetComponentInParent<EnemyHealth>();
+
+            if (enemy != null && damagedEnemies.Add(enemy))
+            {
+                enemy.TakeDamage(_attackDamage);
+            }
+            RangedEnemy rangedEnemy =
+                hitObject.GetComponentInParent<RangedEnemy>();
+
+            if (rangedEnemy != null && damagedRangedEnemies.Add(rangedEnemy))
+            {
+                rangedEnemy.TakeDamage(_attackDamage);
             }
         }
     }
@@ -102,4 +128,3 @@ public class PlayerCombat : MonoBehaviour
         Gizmos.DrawWireCube(_attackPoint.position, _attackSize);
     }
 }
- 

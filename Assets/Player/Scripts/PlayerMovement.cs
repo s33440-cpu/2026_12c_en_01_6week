@@ -1,5 +1,6 @@
 
 using System;
+using System.Collections;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
@@ -26,6 +27,9 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D _rb;
     private SpriteRenderer _spriteRenderer;
     private Animator _animator;
+    private Collider2D _playerCollider;
+    private Collider2D _ignoredPlatform;
+
     private float _xInput;
     private float _coyoteTimeCounter;
 
@@ -34,6 +38,7 @@ public class PlayerMovement : MonoBehaviour
         _rb = GetComponent<Rigidbody2D>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _animator = GetComponent<Animator>();
+        _playerCollider = GetComponent<Collider2D>();
         audioSource = GetComponent<AudioSource>();
     }
 
@@ -53,6 +58,11 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
+        if ((Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S)) && _isGrounded)
+        {
+            TryDropThroughPlatform();
+        }
+
         if (Input.GetButtonDown("Jump") && (_jumpsRemaining > 0 || _coyoteTimeCounter > 0f))
         {
             _performJump = true;
@@ -63,12 +73,7 @@ public class PlayerMovement : MonoBehaviour
             _animator.SetTrigger("Jump");
         }
 
-        _isGrounded = Physics2D.OverlapBox(
-            _groundCheck.position,
-            _groundCheckSize,
-            0f,
-            _groundLayer
-        );
+        _isGrounded = CheckGrounded();
 
         if (_isGrounded)
         {
@@ -101,6 +106,67 @@ public class PlayerMovement : MonoBehaviour
         }
 
         _wasGrounded = _isGrounded;
+    }
+
+    private bool CheckGrounded()
+    {
+        Collider2D[] groundColliders = Physics2D.OverlapBoxAll(
+            _groundCheck.position,
+            _groundCheckSize,
+            0f,
+            _groundLayer
+        );
+
+        foreach (Collider2D groundCollider in groundColliders)
+        {
+            if (groundCollider != _ignoredPlatform)
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    private void TryDropThroughPlatform()
+    {
+        Collider2D[] groundColliders = Physics2D.OverlapBoxAll(
+            _groundCheck.position,
+            _groundCheckSize,
+            0f,
+            _groundLayer
+        );
+
+        foreach (Collider2D groundCollider in groundColliders)
+        {
+            if (groundCollider.GetComponent<PlatformEffector2D>() != null)
+            {
+                StartCoroutine(DropThroughPlatform(groundCollider));
+                return;
+            }
+        }
+    }
+
+    private IEnumerator DropThroughPlatform(Collider2D platformCollider)
+    {
+        if (_playerCollider == null)
+            yield break;
+
+        _ignoredPlatform = platformCollider;
+        _coyoteTimeCounter = 0f;
+
+        Physics2D.IgnoreCollision(_playerCollider, platformCollider, true);
+
+        float timeout = Time.time + 1.5f;
+
+        while (Time.time < timeout &&
+               _playerCollider.bounds.max.y >= platformCollider.bounds.min.y)
+        {
+            yield return new WaitForFixedUpdate();
+        }
+
+        Physics2D.IgnoreCollision(_playerCollider, platformCollider, false);
+        _ignoredPlatform = null;
     }
 
     private void FixedUpdate()

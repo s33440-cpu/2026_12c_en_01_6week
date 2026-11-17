@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class RangedEnemy : MonoBehaviour
 {
+    [Header("Health")]
+    [SerializeField] public int maxHealth = 30;
+
     [Header("Shooting")]
     [SerializeField] private Projectile projectilePrefab;
     [SerializeField] private Transform firePoint;
@@ -12,7 +15,7 @@ public class RangedEnemy : MonoBehaviour
 
     [Header("Animation")]
     [SerializeField] private Animator animator;
-    [SerializeField] private bool spriteFacesRight = true;   // which way the sprite faces by default
+    [SerializeField] private bool spriteFacesRight = false;   // which way the sprite faces by default
 
     private static readonly int AttackHash = Animator.StringToHash("Attack");
 
@@ -20,6 +23,17 @@ public class RangedEnemy : MonoBehaviour
     private Collider2D[] myColliders;
     private float timer;
     private float facingDirection = 1f;
+
+    public int currentHealth;
+    private bool isDead;
+
+    public bool IsDead => isDead;
+    public int CurrentHealth => currentHealth;
+
+    private void Awake()
+    {
+        currentHealth = maxHealth;
+    }
 
     private void Start()
     {
@@ -36,7 +50,7 @@ public class RangedEnemy : MonoBehaviour
 
     private void Update()
     {
-        if (player == null)
+        if (isDead || player == null)
             return;
 
         if (!PlayerInRange())
@@ -48,6 +62,27 @@ public class RangedEnemy : MonoBehaviour
             StartAttack();
             timer = shootInterval;
         }
+    }
+
+    // Call this from other scripts (player bullets, melee hits, traps...)
+    public void TakeDamage(int amount)
+    {
+        if (isDead)
+            return;
+
+        currentHealth -= amount;
+
+        if (currentHealth <= 0)
+        {
+            currentHealth = 0;
+            Die();
+        }
+    }
+
+    private void Die()
+    {
+        isDead = true;
+        Destroy(gameObject);
     }
 
     private bool PlayerInRange()
@@ -71,8 +106,8 @@ public class RangedEnemy : MonoBehaviour
     // Called by an Animation Event on the frame where the shot should leave the enemy
     public void FireProjectile()
     {
-        // If the player left range during the wind-up, skip the shot
-        if (player == null || !PlayerInRange())
+        // Don't shoot if dead, or if the player left range during the wind-up
+        if (isDead || player == null || !PlayerInRange())
             return;
 
         Vector3 spawnPos = firePoint != null ? firePoint.position : transform.position;

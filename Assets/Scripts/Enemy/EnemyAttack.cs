@@ -4,7 +4,7 @@ public class EnemyAttack : MonoBehaviour
 {
     public EnemyAttackZone attackZone;
     public PlayerHealth playerHealth;
-    public int attackDamage = 10;
+    public int attackDamage = 30;
     public float attackTime = 2f;
     private float timer = 0f;
     private Animator animator;

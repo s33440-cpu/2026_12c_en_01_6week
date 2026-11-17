@@ -1,12 +1,23 @@
 
+using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
-    [SerializeField] public int _baseHealth = 100;
-    private LevelRestart _levelRestart;
+    [SerializeField] private int _baseHealth = 100;
+    [SerializeField] private float _invulnerabilityDuration = 1f;
+    [SerializeField] private GameObject deathScreen;
+    [SerializeField] private AudioSource BGM;
+    [SerializeField] private AudioSource deathSound;
 
-    public int currentHealth;
+    private LevelRestart _levelRestart;
+    private float _nextDamageTime;
+
+    public int currentHealth { get; private set; }
+    public int MaxHealth => _baseHealth;
+
+    public event Action<int, int> HealthChanged;
 
     private void Awake()
     {
@@ -14,29 +25,49 @@ public class PlayerHealth : MonoBehaviour
         _levelRestart = GetComponent<LevelRestart>();
     }
 
+    private void Start()
+    {
+        HealthChanged?.Invoke(currentHealth, _baseHealth);
+    }
+
     public void TakeDamage(int damage)
     {
         if (damage <= 0 || currentHealth <= 0)
-        {
             return;
-        }
+
+        if (Time.time < _nextDamageTime)
+            return;
+
+        _nextDamageTime = Time.time + _invulnerabilityDuration;
 
         currentHealth = Mathf.Max(currentHealth - damage, 0);
 
         Debug.Log("Player health: " + currentHealth);
-        Debug.Log("Damage source: " + System.Environment.StackTrace);
+
+        HealthChanged?.Invoke(currentHealth, _baseHealth);
+
         if (currentHealth <= 0)
         {
             Debug.Log("Player died");
-
-            if (_levelRestart != null)
-            {
-                _levelRestart.Restart();
-            }
-            else
-            {
-                Debug.LogError("LevelRestart component is missing.");
-            }
+            deathSound.Play();
+            BGM.Stop();
+            deathScreen.SetActive(true);
+            FindAnyObjectByType<PauseController>().darkOverlay.SetActive(true);
+            int levelIndex = SceneManager.GetActiveScene().buildIndex;
+            bool isNewRecord = HighScoreManager.TrySaveScore(levelIndex, FindAnyObjectByType<CollectableController>().score);
+            Time.timeScale = 0f;
         }
+    }
+
+    public void Heal(int amount)
+    {
+        if (amount <= 0 || currentHealth <= 0)
+            return;
+
+        currentHealth = Mathf.Min(currentHealth + amount, _baseHealth);
+
+        Debug.Log("Player healed. Health: " + currentHealth);
+
+        HealthChanged?.Invoke(currentHealth, _baseHealth);
     }
 }

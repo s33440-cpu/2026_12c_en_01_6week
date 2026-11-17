@@ -6,7 +6,7 @@ public class PatricAttack : MonoBehaviour
     public EnemyAttackZone enemyAttackZone;
     public PlayerHealth playerHealth;
 
-    public int biteDamage = 10;
+    public int biteDamage = 50;
     public float coolDown = 2f;
 
     private float biteTimer = 0f;

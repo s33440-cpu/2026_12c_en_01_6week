@@ -6,14 +6,14 @@ public class CollectableController : MonoBehaviour
 {
     public static CollectableController Instance;
 
-    private int score = 0;
+    public int score = 0;
     private int amountOfDiamods = 0;
     private int amountOfGold = 0;
     private int amountOfKeys = 0;
     private int amountOfSilver = 0;
 
     [SerializeField] private TMP_Text scoreText;
-    [SerializeField] private Slider GoldBar;
+    [SerializeField] private Slider SilverBar;
     [SerializeField] private Slider HpBar;
 
     [Header("Collectable Icons")]
@@ -36,6 +36,7 @@ public class CollectableController : MonoBehaviour
     {
         amountOfSilver += amount;
         score += amount;
+        UpdateSilverBar();
         UpdateScoreText();
     }
 
@@ -51,7 +52,6 @@ public class CollectableController : MonoBehaviour
     {
         score += amount;
         amountOfGold += 1;
-        UpdateGoldBar();
         UpdateScoreText();
     }
 
@@ -63,14 +63,22 @@ public class CollectableController : MonoBehaviour
 
     public void AddHP(int amountOfHealing)
     {
-        FindAnyObjectByType<PlayerHealth>().currentHealth += amountOfHealing;
-        UpdateHealthBar();
+        PlayerHealth playerHealth = FindAnyObjectByType<PlayerHealth>();
+
+        if (playerHealth != null)
+        {
+            playerHealth.Heal(amountOfHealing);
+        }
     }
 
     public void TakeDmg(int damage)
     {
-        FindAnyObjectByType<PlayerHealth>().currentHealth -= damage;
-        UpdateHealthBar();
+        PlayerHealth playerHealth = FindAnyObjectByType<PlayerHealth>();
+
+        if (playerHealth != null)
+        {
+            playerHealth.TakeDamage(damage);
+        }
     }
 
     public void AddSpeed(int amountOfBoost)
@@ -102,16 +110,39 @@ public class CollectableController : MonoBehaviour
         icon.color = owned ? Color.white : Color.black;
     }
 
-    private void UpdateGoldBar()
+    private void UpdateSilverBar()
     {
-        GoldBar.value = amountOfGold;
+        SilverBar.value = amountOfSilver;
     }
 
-    private void UpdateHealthBar()
+    private PlayerHealth playerHealth;
+
+    private void OnEnable()
     {
-        HpBar.value = FindAnyObjectByType<PlayerHealth>().currentHealth;
+        playerHealth = FindAnyObjectByType<PlayerHealth>();
+
+        if (playerHealth != null)
+        {
+            playerHealth.HealthChanged += UpdateHealthBar;
+        }
     }
 
+    private void OnDisable()
+    {
+        if (playerHealth != null)
+        {
+            playerHealth.HealthChanged -= UpdateHealthBar;
+        }
+    }
+
+    private void UpdateHealthBar(int current, int maximum)
+    {
+        if (HpBar != null)
+        {
+            HpBar.maxValue = maximum;
+            HpBar.value = current;
+        }
+    }
     public bool UseKey()
     {
         if (amountOfKeys <= 0)
