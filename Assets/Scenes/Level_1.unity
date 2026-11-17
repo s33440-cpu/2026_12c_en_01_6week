@@ -16328,11 +16328,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 672805562691492297, guid: 66d3a28b69465aa4dad310c182fc9bfa, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -10.9
+      value: 118.5
       objectReference: {fileID: 0}
     - target: {fileID: 672805562691492297, guid: 66d3a28b69465aa4dad310c182fc9bfa, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -37.9
+      value: -20.2
       objectReference: {fileID: 0}
     - target: {fileID: 672805562691492297, guid: 66d3a28b69465aa4dad310c182fc9bfa, type: 3}
       propertyPath: m_LocalPosition.z
@@ -17621,6 +17621,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 589145eab77664f4eb579587a6c63396, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Water
+  damage: 25
+  damageInterval: 1
 --- !u!61 &170091128
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -22309,6 +22311,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 589145eab77664f4eb579587a6c63396, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Water
+  damage: 25
+  damageInterval: 1
 --- !u!19719996 &172007101
 TilemapCollider2D:
   m_ObjectHideFlags: 0
@@ -22710,6 +22714,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 589145eab77664f4eb579587a6c63396, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Water
+  damage: 25
+  damageInterval: 1
 --- !u!61 &187592650
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -79826,6 +79832,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 589145eab77664f4eb579587a6c63396, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Water
+  damage: 25
+  damageInterval: 1
 --- !u!61 &283830174
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -80561,6 +80569,14 @@ PrefabInstance:
       propertyPath: rPoint
       value: 
       objectReference: {fileID: 2101642861}
+    - target: {fileID: 5283711951020547901, guid: 62ba98fa524fd52459560b43be65db5f, type: 3}
+      propertyPath: attackTime
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5283711951020547901, guid: 62ba98fa524fd52459560b43be65db5f, type: 3}
+      propertyPath: attackDamage
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 5283711951020547901, guid: 62ba98fa524fd52459560b43be65db5f, type: 3}
       propertyPath: playerHealth
       value: 
@@ -88395,6 +88411,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 589145eab77664f4eb579587a6c63396, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Water
+  damage: 25
+  damageInterval: 1
 --- !u!61 &443427339
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -111580,6 +111598,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 589145eab77664f4eb579587a6c63396, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Water
+  damage: 25
+  damageInterval: 1
 --- !u!61 &589471134
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -117191,6 +117211,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 589145eab77664f4eb579587a6c63396, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Water
+  damage: 25
+  damageInterval: 1
 --- !u!61 &635571469
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -122994,6 +123016,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 589145eab77664f4eb579587a6c63396, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Water
+  damage: 25
+  damageInterval: 1
 --- !u!61 &657231321
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -124106,6 +124130,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 589145eab77664f4eb579587a6c63396, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Water
+  damage: 25
+  damageInterval: 1
 --- !u!61 &718434110
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -134961,6 +134987,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 589145eab77664f4eb579587a6c63396, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Water
+  damage: 25
+  damageInterval: 1
 --- !u!61 &774920889
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -135714,6 +135742,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 589145eab77664f4eb579587a6c63396, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Water
+  damage: 25
+  damageInterval: 1
 --- !u!61 &797586688
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -136109,7 +136139,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
   _baseHealth: 100
-  currentHealth: 0
+  _invulnerabilityDuration: 1
 --- !u!114 &807312830
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -136595,6 +136625,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 589145eab77664f4eb579587a6c63396, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Water
+  damage: 25
+  damageInterval: 1
 --- !u!61 &816037703
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -138590,6 +138622,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 589145eab77664f4eb579587a6c63396, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Water
+  damage: 25
+  damageInterval: 1
 --- !u!61 &863596807
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -140126,7 +140160,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 906053068}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 715fda38cc7ecf44296a434638da0b5c, type: 3}
   m_Name: 
@@ -140134,8 +140168,8 @@ MonoBehaviour:
   patricMove: {fileID: 906053075}
   enemyAttackZone: {fileID: 1912520465}
   playerHealth: {fileID: 807312828}
-  biteDamage: 10
-  coolDown: 2
+  biteDamage: 25
+  coolDown: 1
 --- !u!114 &906053091
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -140153,16 +140187,16 @@ MonoBehaviour:
   player: {fileID: 807312827}
   dashSpeed: 6
   dashDuration: 0.2
-  dashCooldown: 5
-  warningDuration: 0.6
+  dashCooldown: 2
+  warningDuration: 0.1
   dashTriggerDistance: 4
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
   groundCheckDistance: 1.5
   groundCheckForward: 0.4
-  dashDamage: 15
-  knockbackForce: 6
+  dashDamage: 50
+  knockbackForce: 20
 --- !u!1 &907762660 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3937496879528532401, guid: f0a01e4db39c7254b8b283ce406121d1, type: 3}
@@ -140724,6 +140758,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 589145eab77664f4eb579587a6c63396, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Water
+  damage: 25
+  damageInterval: 1
 --- !u!61 &943867064
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -148583,6 +148619,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 589145eab77664f4eb579587a6c63396, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Water
+  damage: 25
+  damageInterval: 1
 --- !u!61 &1066203507
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -153083,6 +153121,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 589145eab77664f4eb579587a6c63396, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Water
+  damage: 25
+  damageInterval: 1
 --- !u!61 &1213702067
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -153234,6 +153274,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 589145eab77664f4eb579587a6c63396, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Water
+  damage: 25
+  damageInterval: 1
 --- !u!61 &1219112512
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -159685,6 +159727,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 589145eab77664f4eb579587a6c63396, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Water
+  damage: 25
+  damageInterval: 1
 --- !u!61 &1283045459
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -178089,6 +178133,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 589145eab77664f4eb579587a6c63396, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Water
+  damage: 25
+  damageInterval: 1
 --- !u!61 &1636649630
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -191027,6 +191073,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 589145eab77664f4eb579587a6c63396, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Water
+  damage: 25
+  damageInterval: 1
 --- !u!61 &1979549781
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -192191,6 +192239,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 589145eab77664f4eb579587a6c63396, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Water
+  damage: 25
+  damageInterval: 1
 --- !u!61 &2018463845
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -194056,6 +194106,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 807312827}
+    - target: {fileID: 3685739485157931339, guid: 283a54b10abe334409498e7a4dd0f021, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3723158920125168785, guid: 283a54b10abe334409498e7a4dd0f021, type: 3}
       propertyPath: m_SortingLayer
       value: 3
@@ -200048,6 +200102,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 589145eab77664f4eb579587a6c63396, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Water
+  damage: 25
+  damageInterval: 1
 --- !u!61 &2144580117
 BoxCollider2D:
   m_ObjectHideFlags: 0
