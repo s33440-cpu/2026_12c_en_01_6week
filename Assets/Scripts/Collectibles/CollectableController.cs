@@ -6,14 +6,14 @@ public class CollectableController : MonoBehaviour
 {
     public static CollectableController Instance;
 
-    private int score = 0;
+    public int score = 0;
     private int amountOfDiamods = 0;
     private int amountOfGold = 0;
     private int amountOfKeys = 0;
     private int amountOfSilver = 0;
 
     [SerializeField] private TMP_Text scoreText;
-    [SerializeField] private Slider GoldBar;
+    [SerializeField] private Slider SilverBar;
     [SerializeField] private Slider HpBar;
 
     [Header("Collectable Icons")]
@@ -36,6 +36,7 @@ public class CollectableController : MonoBehaviour
     {
         amountOfSilver += amount;
         score += amount;
+        UpdateSilverBar();
         UpdateScoreText();
     }
 
@@ -51,7 +52,6 @@ public class CollectableController : MonoBehaviour
     {
         score += amount;
         amountOfGold += 1;
-        UpdateGoldBar();
         UpdateScoreText();
     }
 
@@ -102,9 +102,9 @@ public class CollectableController : MonoBehaviour
         icon.color = owned ? Color.white : Color.black;
     }
 
-    private void UpdateGoldBar()
+    private void UpdateSilverBar()
     {
-        GoldBar.value = amountOfGold;
+        SilverBar.value = amountOfSilver;
     }
 
     private void UpdateHealthBar()

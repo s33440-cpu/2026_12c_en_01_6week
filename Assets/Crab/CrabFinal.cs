@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CrabFinal : MonoBehaviour
 {
@@ -21,7 +22,8 @@ public class CrabFinal : MonoBehaviour
         if (!CanFinishLevel()) {
             return;
         }
-
+        int levelIndex = SceneManager.GetActiveScene().buildIndex;
+        bool isNewRecord = HighScoreManager.TrySaveScore(levelIndex, FindAnyObjectByType<CollectableController>().score);
         if (cutscene != null) {
             cutscene.nextLevelName = nextLevelName;
             cutscene.StartCutscene();
