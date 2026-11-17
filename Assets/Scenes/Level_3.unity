@@ -10509,7 +10509,7 @@ ParticleSystem:
     donutRadius: 0.2
     m_Position: {x: 0, y: -2, z: 0}
     m_Rotation: {x: 0, y: 0, z: 0}
-    m_Scale: {x: 1.5, y: 1, z: 1}
+    m_Scale: {x: 1.8899041, y: 0.9803454, z: 0.9803454}
     placementMode: 0
     m_MeshMaterialIndex: 0
     m_MeshNormalOffset: 0
@@ -14740,8 +14740,8 @@ Transform:
   m_GameObject: {fileID: 445387961}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.06, y: -0.4, z: 0}
-  m_LocalScale: {x: 0.4, y: 0.05, z: 0.01}
+  m_LocalPosition: {x: -0.007, y: -0.301, z: 0}
+  m_LocalScale: {x: 0.545, y: 0.05, z: 0.01}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1122982888}
@@ -52147,7 +52147,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.75, y: 0.875}
+    oldSize: {x: 1.21875, y: 0.9375}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -54824,7 +54824,7 @@ PrefabInstance:
     - target: {fileID: 3153925398384279541, guid: 66d3a28b69465aa4dad310c182fc9bfa, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -427404151018760640, guid: d65cc22f430bf90498a5cfb12505f7b5, type: 3}
+      objectReference: {fileID: -2403993053922000566, guid: f5632043100e89545acc335763766793, type: 3}
     - target: {fileID: 3153925398384279541, guid: 66d3a28b69465aa4dad310c182fc9bfa, type: 3}
       propertyPath: m_Color.b
       value: 1
@@ -73750,10 +73750,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CollectableController
   scoreText: {fileID: 1392990191}
-  diamondText: {fileID: 542013897}
   GoldBar: {fileID: 0}
   HpBar: {fileID: 0}
-  KeyText: {fileID: 150956224}
+  diamondImage: {fileID: 0}
+  keyImage: {fileID: 0}
 --- !u!114 &2007384888
 MonoBehaviour:
   m_ObjectHideFlags: 0
