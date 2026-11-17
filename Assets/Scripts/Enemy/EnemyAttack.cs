@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class EnemyAttack : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     public EnemyAttackZone attackZone;
     public PlayerHealth playerHealth;
     public int attackDamage = 30;
@@ -34,7 +33,7 @@ public class EnemyAttack : MonoBehaviour
     public void DealDamage() {
         if (attackZone == null || !attackZone.playerInRange)
         {
-            Debug.Log(gameObject.name + ": Player is outside attack range");
+           // Debug.Log(gameObject.name + ": Player is outside attack range");
             return;
         }
         if (playerHealth != null &&
@@ -49,7 +48,7 @@ public class EnemyAttack : MonoBehaviour
         }
 
        // Debug.Log(gameObject.name + ": Dealing " + attackDamage + " damage");
-        Debug.Log(gameObject.name + " attacks. Player in range: " + attackZone.playerInRange);
+       // Debug.Log(gameObject.name + " attacks. Player in range: " + attackZone.playerInRange);
     }
     public void HideAttackEffect()
     {

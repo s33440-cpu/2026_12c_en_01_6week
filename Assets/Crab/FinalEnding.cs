@@ -108,7 +108,7 @@ public class FinalEnding : MonoBehaviour
     {
         if (mainCamera == null || cameraPoint == null)
         {
-            Debug.LogWarning("Camera or Camera Point is missing!");
+          //  Debug.LogWarning("Camera or Camera Point is missing!");
             yield break;
         }
 

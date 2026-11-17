@@ -19,7 +19,6 @@ public class PatricMove : MonoBehaviour
     private Vector3 patrickStartPosition;
     private float patrickJumpTimer = 0f;
     private bool patrickIsGrounded = false;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         patrickBody = GetComponent<Rigidbody2D>();
@@ -31,7 +30,6 @@ public class PatricMove : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
     void Update(){
         if (patrickIsAttacking == false)
         {

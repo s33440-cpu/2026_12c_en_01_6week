@@ -27,10 +27,10 @@ public class CrabCutscene : MonoBehaviour
         if (mainCamera != null)
         {
             cameraFollow = mainCamera.GetComponent<CameraFollow>();
-            if (cameraFollow == null)
-            {
-                Debug.LogWarning("Camera Follow script was not found!");
-            }
+           // if (cameraFollow == null)
+           // {
+           //     Debug.LogWarning("Camera Follow script was not found!");
+          //  }
         }
 
         AudioSource[] sources = GetComponents<AudioSource>();
@@ -65,7 +65,7 @@ public class CrabCutscene : MonoBehaviour
     private IEnumerator PlayCutscene()
     {
         if (mainCamera == null || cameraPoint == null) {
-            Debug.LogError("Main Camera or Camera Point is missing!");
+           // Debug.LogError("Main Camera or Camera Point is missing!");
             cutsceneStarted = false;
             yield break;
         }

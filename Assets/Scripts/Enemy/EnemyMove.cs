@@ -15,7 +15,6 @@ public class EnemyMove : MonoBehaviour
     private Animator animator;
     private int moveSide = 1; 
     private bool isGrounded = false;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         enemyBody = GetComponent<Rigidbody2D>();
@@ -42,7 +41,6 @@ public class EnemyMove : MonoBehaviour
 
     }
 
-    // Update is called once per frame
     void FixedUpdate()
     {
         float speed = enemySpeed;

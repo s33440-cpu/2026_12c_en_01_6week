@@ -3,38 +3,27 @@ using System.Collections;
 
 public class PatricDash : MonoBehaviour
 {
-    [Header("References")]
     public PatricMove patricMove;
     public EnemyDetect patrickDetect;
     public Transform player;
-
-    [Header("Dash Settings")]
     public float dashSpeed = 8f;
     public float dashDuration = 0.45f;
     public float dashCooldown = 5f;
     public float warningDuration = 0.6f;
     public float dashTriggerDistance = 4f;
-
-    [Header("Ground Check")]
     public LayerMask groundLayer;
     public float groundCheckDistance = 1.5f;
     public float groundCheckForward = 0.6f;
-
-    [Header("Damage")]
     public int dashDamage = 15;
     public float knockbackForce = 6f;
-
     private Rigidbody2D rb;
     private Animator animator;
     private Collider2D bodyCollider;
-
     private bool isDashing = false;
     private bool dashIsActive = false;
     private bool hasHitPlayer = false;
-
     private float cooldownTimer = 0f;
     private float lastDirection = 1f;
-
     private Vector3 originalScale;
 
     private void Awake()
@@ -80,36 +69,25 @@ public class PatricDash : MonoBehaviour
         isDashing = true;
         patricMove.patrickIsAttacking = true;
 
-        // Stop normal movement
-        rb.linearVelocity = new Vector2(
-            0f,
-            rb.linearVelocity.y
-        );
+        rb.linearVelocity = new Vector2(0f, rb.linearVelocity.y);
 
         animator.SetBool("IsMoving", false);
-
-        // Determine direction before warning
         float direction = GetPlayerDirection();
-
         FaceDirection(direction);
-
-        // Play attack animation
         animator.ResetTrigger("Attack");
         animator.SetTrigger("Attack");
 
-        // Warning before dash
         yield return new WaitForSeconds(warningDuration);
 
-        // Update direction immediately before moving
         direction = GetPlayerDirection();
 
         FaceDirection(direction);
 
-        Debug.Log(
-            "PATRICK DASH START | Direction: " + direction +
-            " | Player X: " + player.position.x +
-            " | Patrick X: " + rb.position.x
-        );
+      //  Debug.Log(
+      //      "PATRICK DASH START | Direction: " + direction +
+      //      " | Player X: " + player.position.x +
+      //      " | Patrick X: " + rb.position.x
+      //  );
 
         hasHitPlayer = false;
         dashIsActive = true;
@@ -120,7 +98,7 @@ public class PatricDash : MonoBehaviour
         {
             if (!HasGroundAhead(direction))
             {
-                Debug.Log("PATRICK: Edge detected");
+               // Debug.Log("PATRICK: Edge detected");
                 break;
             }
 
@@ -147,14 +125,12 @@ public class PatricDash : MonoBehaviour
         patricMove.patrickIsAttacking = false;
         isDashing = false;
 
-        Debug.Log("PATRICK: Dash finished successfully");
+      //  Debug.Log("PATRICK: Dash finished successfully");
     }
 
     private float GetPlayerDirection()
     {
         float difference = player.position.x - rb.position.x;
-
-        // Avoid random direction when positions are almost equal
         if (Mathf.Abs(difference) < 0.15f)
         {
             return lastDirection;
@@ -172,42 +148,19 @@ public class PatricDash : MonoBehaviour
         scale.x = direction > 0f
             ? Mathf.Abs(originalScale.x)
             : -Mathf.Abs(originalScale.x);
-
         transform.localScale = scale;
     }
 
     private bool HasGroundAhead(float direction)
     {
-        float halfWidth = bodyCollider != null
-            ? bodyCollider.bounds.extents.x
-            : 0.3f;
+        float halfWidth = bodyCollider != null ? bodyCollider.bounds.extents.x : 0.3f;
 
-        float checkX = rb.position.x +
-                       direction * (halfWidth + groundCheckForward);
+        float checkX = rb.position.x + direction * (halfWidth + groundCheckForward);
 
-        float checkY = bodyCollider != null
-            ? bodyCollider.bounds.min.y + 0.1f
-            : rb.position.y;
-
-        Vector2 checkPosition = new Vector2(
-            checkX,
-            checkY
-        );
-
-        RaycastHit2D hit = Physics2D.Raycast(
-            checkPosition,
-            Vector2.down,
-            groundCheckDistance,
-            groundLayer
-        );
-
-        Debug.DrawRay(
-            checkPosition,
-            Vector2.down * groundCheckDistance,
-            Color.red,
-            0.1f
-        );
-
+        float checkY = bodyCollider != null ? bodyCollider.bounds.min.y + 0.1f : rb.position.y;
+        Vector2 checkPosition = new Vector2(checkX, checkY);
+        RaycastHit2D hit = Physics2D.Raycast(checkPosition, Vector2.down, groundCheckDistance, groundLayer);
+        Debug.DrawRay(checkPosition, Vector2.down * groundCheckDistance, Color.red, 0.1f);
         return hit.collider != null;
     }
 
@@ -248,20 +201,13 @@ public class PatricDash : MonoBehaviour
 
         if (playerRb != null)
         {
-            float direction = Mathf.Sign(
-                target.transform.position.x - transform.position.x
-            );
-
+            float direction = Mathf.Sign(target.transform.position.x - transform.position.x);
             if (direction == 0f)
             {
                 direction = lastDirection;
             }
 
-            Vector2 knockbackDirection = new Vector2(
-                direction,
-                0.35f
-            ).normalized;
-
+            Vector2 knockbackDirection = new Vector2(direction, 0.35f).normalized;
             playerRb.AddForce(
                 knockbackDirection * knockbackForce,
                 ForceMode2D.Impulse

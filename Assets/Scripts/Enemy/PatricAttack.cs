@@ -60,7 +60,7 @@ public class PatricAttack : MonoBehaviour
 
     public void EndBite()
     {
-        Debug.Log("PATRICK: Normal attack finished");
+     //   Debug.Log("PATRICK: Normal attack finished");
         if (patricMove != null)
         {
             patricMove.patrickIsAttacking = false;

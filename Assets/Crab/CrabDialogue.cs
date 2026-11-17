@@ -123,9 +123,9 @@ public class CrabDialogue : MonoBehaviour
         {
             if (crabFinal == null)
             {
-                Debug.LogWarning(
-                    "CrabFinal component is missing!"
-                );
+               // Debug.LogWarning(
+             //       "CrabFinal component is missing!"
+              //  );
                 return;
             }
 
@@ -270,7 +270,6 @@ public class CrabDialogue : MonoBehaviour
         letterObject.transform.localScale = Vector3.one * letterScale;
         SpriteRenderer renderer = letterObject.AddComponent<SpriteRenderer>();
         renderer.sprite = sprite;
-       // renderer.color = Color.white;
         renderer.sortingLayerName = "Player";
         renderer.sortingOrder = 21;
         createdLetters.Add(letterObject);
