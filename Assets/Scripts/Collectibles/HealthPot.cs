@@ -2,13 +2,20 @@ using UnityEngine;
 
 public class HealthPot : MonoBehaviour
 {
-    [SerializeField] private int amountOfHealing = 3;
+    public int amountOfHealing = 3;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (!other.CompareTag("Player"))
+            return;
+
+        PotionInventory inventory = other.GetComponent<PotionInventory>();
+
+        if (inventory == null)
+            return;
+
+        if (inventory.TryStorePotion(PotionType.Healing))
         {
-            CollectableController.Instance.AddHP(amountOfHealing);
             Destroy(gameObject);
         }
     }

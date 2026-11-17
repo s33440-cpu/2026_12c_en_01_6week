@@ -1,9 +1,9 @@
 
 using UnityEngine;
-using TMPro;
 
 public class Chest : MonoBehaviour
 {
+    public Animator animator;
     public GameObject potionPrefab;
     public Transform potionSpawnPoint;
 
@@ -44,9 +44,16 @@ public class Chest : MonoBehaviour
 
         isOpened = true;
 
+        animator.SetTrigger("Open");
+
+
+
+    }
+    public void OnOpeningFinished()
+    {
         if (potionPrefab != null && potionSpawnPoint != null)
         {
-            Instantiate(potionPrefab,potionSpawnPoint.position,potionSpawnPoint.rotation);
+            Instantiate(potionPrefab, potionSpawnPoint.position, potionSpawnPoint.rotation);
         }
         Debug.Log("Chest opened!");
     }

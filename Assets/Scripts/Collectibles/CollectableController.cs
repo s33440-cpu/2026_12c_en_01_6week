@@ -1,9 +1,6 @@
-
-using System.Collections;
-using TMPro;
 using UnityEngine;
-using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using TMPro;
 
 public class CollectableController : MonoBehaviour
 {
@@ -14,15 +11,25 @@ public class CollectableController : MonoBehaviour
     private int amountOfGold = 0;
     private int amountOfKeys = 0;
     private int amountOfSilver = 0;
+
     [SerializeField] private TMP_Text scoreText;
-    [SerializeField] private TMP_Text diamondText;
     [SerializeField] private Slider GoldBar;
     [SerializeField] private Slider HpBar;
-    [SerializeField] private TMP_Text KeyText;  
+
+    [Header("Collectable Icons")]
+    [SerializeField] private Image diamondImage;
+    [SerializeField] private Image keyImage;
 
     private void Awake()
     {
         Instance = this;
+    }
+
+    private void Start()
+    {
+        // Start with both icons blacked out
+        UpdateDiamondImage();
+        UpdateKeyImage();
     }
 
     public void AddSilver(int amount)
@@ -31,60 +38,78 @@ public class CollectableController : MonoBehaviour
         score += amount;
         UpdateScoreText();
     }
+
     public void AddDiamond(int amount)
     {
         amountOfDiamods += 1;
         score += amount;
         UpdateScoreText();
-        UpdateDiamondText();
+        UpdateDiamondImage();
     }
+
     public void AddGold(int amount)
     {
         score += amount;
         amountOfGold += 1;
-        UpdateGoldBar();   
+        UpdateGoldBar();
         UpdateScoreText();
     }
+
     public void AddKey()
     {
         amountOfKeys += 1;
-        UpdateKeyText();
+        UpdateKeyImage();
     }
+
     public void AddHP(int amountOfHealing)
     {
         FindAnyObjectByType<PlayerHealth>().currentHealth += amountOfHealing;
         UpdateHealthBar();
     }
+
     public void TakeDmg(int damage)
     {
         FindAnyObjectByType<PlayerHealth>().currentHealth -= damage;
         UpdateHealthBar();
     }
+
     public void AddSpeed(int amountOfBoost)
     {
         FindAnyObjectByType<PlayerMovement>()._speed += amountOfBoost;
     }
 
-
     private void UpdateScoreText()
     {
         scoreText.text = "Score: " + score;
     }
-    private void UpdateDiamondText()
+
+    private void UpdateDiamondImage()
     {
-        diamondText.text = "Diamonds: " + amountOfDiamods;
+        SetIconState(diamondImage, amountOfDiamods > 0);
     }
+
+    private void UpdateKeyImage()
+    {
+        SetIconState(keyImage, amountOfKeys > 0);
+    }
+
+    // Black = silhouette, white = the sprite's normal colors
+    private void SetIconState(Image icon, bool owned)
+    {
+        if (icon == null)
+            return;
+
+        icon.color = owned ? Color.white : Color.black;
+    }
+
     private void UpdateGoldBar()
     {
         GoldBar.value = amountOfGold;
     }
+
     private void UpdateHealthBar()
     {
         HpBar.value = FindAnyObjectByType<PlayerHealth>().currentHealth;
-    }
-    private void UpdateKeyText()
-    {
-        KeyText.text = "Keys: " + amountOfKeys;
     }
 
     public bool UseKey()
@@ -96,10 +121,11 @@ public class CollectableController : MonoBehaviour
         }
 
         amountOfKeys--;
-        UpdateKeyText();
+        UpdateKeyImage(); // goes back to black when the last key is used
         Debug.Log("Key used! Keys remaining: " + amountOfKeys);
         return true;
     }
+
     public int GetSilverCount()
     {
         return amountOfSilver;

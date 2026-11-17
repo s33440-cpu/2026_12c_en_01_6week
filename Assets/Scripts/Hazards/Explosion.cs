@@ -22,10 +22,6 @@ public class Explosion : MonoBehaviour
 
         transform.localScale = Vector3.Lerp(initialScale, initialScale * maxSize, progress);
 
-        if (timer >= duration)
-        {
-            Destroy(gameObject);
-        }
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
